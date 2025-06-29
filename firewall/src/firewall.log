@@ -1,0 +1,31 @@
+2025-05-29 00:01:40,963 - FirewallLogger - INFO - Database initialized successfully
+2025-05-29 00:01:40,986 - FirewallLogger - INFO - Loaded 5 active rules out of 5 total rules
+2025-05-29 00:01:41,000 - FirewallLogger - INFO - Loaded 5 active rules out of 5 total rules
+2025-05-29 00:01:41,011 - FirewallLogger - INFO - Loaded 5 firewall rules
+2025-05-29 00:27:50,346 - FirewallLogger - INFO - Database initialized successfully
+2025-05-29 00:27:50,359 - FirewallLogger - INFO - Loaded 5 active rules out of 5 total rules
+2025-05-29 00:27:50,371 - FirewallLogger - INFO - Loaded 5 active rules out of 5 total rules
+2025-05-29 00:27:50,383 - FirewallLogger - INFO - Loaded 5 firewall rules
+2025-05-29 00:28:24,255 - FirewallLogger - INFO - Packet sniffer started
+2025-05-29 00:28:24,255 - FirewallLogger - INFO - Sniffer error: [Errno 1] Operation not permitted
+2025-05-29 00:28:24,271 - FirewallLogger - WARNING - iptables command not found. OS-level firewall rules will not be applied.
+2025-05-29 00:28:24,282 - FirewallLogger - INFO - Firewall started
+2025-05-29 00:28:39,034 - FirewallLogger - INFO - Packet sniffer stopped
+2025-05-29 00:28:39,048 - FirewallLogger - WARNING - iptables command not found. No OS-level firewall rules to remove.
+2025-05-29 00:28:39,060 - FirewallLogger - INFO - Firewall stopped
+2025-05-29 22:43:20,669 - FirewallLogger - INFO - Database initialized successfully
+2025-05-29 22:43:20,684 - FirewallLogger - INFO - Loaded 6 active rules out of 6 total rules
+2025-05-29 22:43:20,699 - FirewallLogger - INFO - Loaded 6 active rules out of 6 total rules
+2025-05-29 22:43:20,715 - FirewallLogger - INFO - Loaded 6 firewall rules
+2025-05-30 23:45:03,189 - FirewallLogger - INFO - Database initialized successfully
+2025-05-30 23:45:03,206 - FirewallLogger - INFO - Loaded 1 active rules out of 1 total rules
+2025-05-30 23:45:03,221 - FirewallLogger - INFO - Loaded 1 active rules out of 1 total rules
+2025-05-30 23:45:03,236 - FirewallLogger - INFO - Loaded 1 firewall rules
+2025-05-30 23:45:39,104 - FirewallLogger - INFO - Database initialized successfully
+2025-05-30 23:45:39,120 - FirewallLogger - INFO - Loaded 1 active rules out of 1 total rules
+2025-05-30 23:45:39,135 - FirewallLogger - INFO - Loaded 1 active rules out of 1 total rules
+2025-05-30 23:45:39,150 - FirewallLogger - INFO - Loaded 1 firewall rules
+2025-05-30 23:46:46,885 - FirewallLogger - INFO - Database initialized successfully
+2025-05-30 23:46:46,910 - FirewallLogger - INFO - Loaded 1 active rules out of 1 total rules
+2025-05-30 23:46:46,930 - FirewallLogger - INFO - Loaded 1 active rules out of 1 total rules
+2025-05-30 23:46:46,944 - FirewallLogger - INFO - Loaded 1 firewall rules

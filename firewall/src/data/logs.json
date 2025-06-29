@@ -1,0 +1,6617 @@
+{
+  "connection_logs": [
+    {
+      "timestamp": 1751217818.919564,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217818.9177024,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217818.59549,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217818.2520015,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217818.2516336,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217818.2512178,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217818.2507644,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 32367,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1751217818.2502422,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 25680,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1751217818.2496212,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 2165,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1751217814.1194367,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "35.227.242.200",
+      "src_port": 51208,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217813.9441783,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "35.227.242.200",
+      "src_port": 51208,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217813.1567595,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "34.110.207.168",
+      "src_port": 44504,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217812.9438474,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "34.110.207.168",
+      "src_port": 44504,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217800.3315358,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217800.3296218,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217800.0761955,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217799.6388364,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217799.638341,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217797.4804401,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 57656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217797.3330321,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 57656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217796.7290096,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217795.7058945,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217794.6808987,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217793.6567047,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217792.6330395,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217791.9875195,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.112.26",
+      "src_port": 52624,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217791.6086805,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217790.5845945,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217789.560527,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217788.5369923,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217787.5138679,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217786.4891512,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217785.4647706,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217784.4228551,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1751217774.830684,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217774.4792397,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217773.8782008,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217773.8777688,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217771.7455804,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 57656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217771.572708,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 57656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217771.0978944,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1751217771.097527,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217771.097086,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217770.7722743,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217770.7694666,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217770.5313911,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217770.5300622,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217770.297324,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217770.2961314,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217770.082229,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35842,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1751217769.9550943,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53038,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1751217769.954504,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53038,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1751217767.5071144,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217767.5045004,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217767.1784315,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217767.1593618,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1751217767.1589847,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1751217767.1583993,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.65.91",
+      "src_port": 36052,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784912.959777,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784911.9358585,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784911.1974354,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784910.9115593,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784910.836255,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784910.8359745,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784910.8356457,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784909.887512,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784908.862902,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784907.839325,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784906.815491,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784906.165121,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784905.7922053,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784905.791907,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784905.7915814,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784905.7909498,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784904.767652,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784903.7570267,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784896.088666,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784895.731114,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784895.7308486,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784895.730517,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784895.67888,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784894.655363,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784893.6318746,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784892.60699,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784891.5836923,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784890.5592744,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784890.3561974,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784890.3549325,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784889.9960504,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784889.9934483,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784889.993113,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784889.9921985,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784889.5348082,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784888.5224643,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784887.9726715,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 3,
+        "icmp_code": 3
+      }
+    },
+    {
+      "timestamp": 1748784887.9255373,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 50238,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784887.7453606,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 50238,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784887.7450397,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46686,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748784887.7448058,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 44132,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784887.744491,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 51744,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784887.744071,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 19161,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784886.0956843,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784885.7114887,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784885.7111568,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784885.7108297,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784885.7045429,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 43915,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784885.7040577,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 35375,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784881.0874028,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784881.0857744,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784880.7045512,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784880.7042708,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784880.7040014,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784880.7037046,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 33613,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784880.7033632,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 30635,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784880.7029216,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 32883,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784876.12626,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784875.704957,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784875.7046602,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784875.704188,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784871.1321528,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784870.806064,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.207.73.85",
+      "src_port": 55124,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748784870.8057194,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.207.73.85",
+      "src_port": 55124,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784870.8051074,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.207.73.85",
+      "src_port": 55124,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784870.68403,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784870.6837444,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784870.6833498,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.9",
+      "src_port": 46670,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784245.2278056,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784244.8756928,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784244.8753462,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784244.8750293,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784244.8746805,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53834,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784244.874299,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 37901,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784244.873771,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53382,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784240.4284103,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.9824345,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 47682,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748784239.9821362,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 47682,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.9817035,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 47682,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784239.8741474,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.8738537,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784239.8734958,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.7715065,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748784239.7712274,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.7707477,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784239.5679135,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.5661182,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784239.371992,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.3710291,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784239.1760864,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784239.1755722,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784238.9816117,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 35814,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1748784238.9756231,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53042,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784238.9064746,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 58237,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784236.5969572,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 3,
+        "icmp_code": 3
+      }
+    },
+    {
+      "timestamp": 1748784201.7282484,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784200.7030272,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784199.8050683,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784199.80369,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784199.680525,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784199.581125,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784199.5808527,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784199.5804884,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784198.654921,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784197.6310236,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784196.6077979,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784195.5833268,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784194.8383212,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784194.5742455,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784194.5739365,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784194.5735345,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784194.5598612,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784193.535764,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784192.5109262,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784191.4876275,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784190.4631212,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784189.8549244,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784189.5659523,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784189.56566,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784189.5651798,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784189.4394875,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784188.415594,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784187.3916569,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784186.3675554,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784185.3432033,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784184.7795277,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784184.7779753,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784184.556199,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784184.5559483,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784184.555681,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784184.555378,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 5199,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784184.5550494,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 55358,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784184.5546682,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 16812,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784184.3189435,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784183.2953782,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784182.27158,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784181.2472253,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784180.2237096,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784179.199175,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784178.175722,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784178.0135932,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784177.754905,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784177.7511222,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784177.7508364,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784177.7505317,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784177.4788792,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.114.22",
+      "src_port": 55636,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784177.1517205,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784176.126041,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748784175.6829228,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784175.5323102,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784174.8597906,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784174.5380728,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784174.5377572,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784174.537205,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.7388468,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.7374976,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784169.6212509,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748784169.6210032,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.620347,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784169.5286646,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.5283406,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784169.527904,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.4351158,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.4335172,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784169.239508,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.2386181,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784169.0492435,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784169.0487046,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784168.8648527,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.50.88.235",
+      "src_port": 44140,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1748784168.8249953,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53505,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784168.7545857,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 56826,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748784165.6180582,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784165.2075908,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784164.5246665,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784164.5243714,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748784164.5240254,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784161.2950604,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784159.8512216,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748784159.8508546,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783999.9944158,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783999.9930003,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783998.990204,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783998.9899383,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783998.989616,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783994.9133332,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783993.9818232,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783993.9815326,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783993.9810548,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783993.8309903,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 54892,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FPA"
+      }
+    },
+    {
+      "timestamp": 1748783993.431619,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 54892,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783993.4292474,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 54892,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FPA"
+      }
+    },
+    {
+      "timestamp": 1748783993.4288757,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.250.119.64",
+      "src_port": 54892,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783990.7150598,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783990.7132788,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783988.9465494,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783988.9462626,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783988.9459023,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783986.2392213,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783984.8343792,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783983.928128,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783983.9278336,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783983.9275472,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783983.9272592,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783983.9269292,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783981.2216504,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.114.22",
+      "src_port": 54592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748783981.221451,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.114.22",
+      "src_port": 54592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783981.221125,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.114.22",
+      "src_port": 54592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783981.2208037,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.114.22",
+      "src_port": 54592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783980.9544115,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783978.8836043,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783978.8831887,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783978.8828597,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783975.68791,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783975.686511,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783973.8797889,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783973.8795218,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783973.879168,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783972.4685624,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783972.3908093,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748783969.6066666,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.873433,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783968.8731759,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.872902,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783968.8726146,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 49490,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783968.8723023,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 36172,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783968.8719256,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 23132,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783968.3895605,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.3893123,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.389081,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.388861,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.388537,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.3799567,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.2761173,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783968.2740624,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.2043378,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783968.2034287,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.124748,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783968.1242564,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783968.0646856,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.107.5.93",
+      "src_port": 59290,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1748783968.0605357,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 51145,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783968.0029929,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 50898,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783964.7956667,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783963.8642175,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783963.8639321,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783963.8635433,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783959.638804,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783959.1615953,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783959.160181,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783958.8189902,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783958.818717,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783958.8183792,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783956.8477044,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748783956.8474684,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783956.847087,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783956.5207376,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783956.5204818,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783956.5202055,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783956.5198946,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783956.519537,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783956.519157,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783956.5170028,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783956.197629,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783956.1969693,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783955.881158,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783955.880745,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783955.662474,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748783955.6620271,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783955.5556064,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 60732,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1748783955.549883,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 48343,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783955.5413098,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 44563,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783954.5332844,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783954.1809063,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783954.1806479,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783954.1803455,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783954.1799629,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783954.1779742,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783954.058353,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783953.8130794,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783953.8128083,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783953.8123949,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783953.7550771,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783953.7540662,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783953.287959,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783953.2876945,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783952.9998188,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.189.173.2",
+      "src_port": 34882,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1748783952.956828,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 53836,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783952.8841882,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 40243,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783949.0955203,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783949.0941048,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783948.805098,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783948.8047786,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783948.804394,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783943.4036849,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783943.1386912,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783943.1381514,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783943.1378763,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783943.1375926,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783943.1372685,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783943.1368787,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783941.0832694,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783940.9251049,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783940.1178644,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783939.279952,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783939.2785735,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783939.1150231,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783938.797993,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783938.7976727,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783938.7972684,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783938.1141968,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783937.1128197,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783936.1119144,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783935.1108751,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783934.1098628,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783933.1088986,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783932.905937,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783932.7206576,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783932.4590383,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783932.4559639,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783932.4556913,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783932.455284,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783932.108215,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783931.106864,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "8.8.8.8",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "BLOCK",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 8,
+        "icmp_code": 0
+      }
+    },
+    {
+      "timestamp": 1748783930.3910608,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783930.238812,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "13.67.9.5",
+      "src_port": 49518,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783929.0021126,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783929.000853,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783928.781964,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783928.7816637,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783928.7812355,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783924.1628706,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783923.7774897,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783923.7771902,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783923.7767887,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783919.523871,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783918.7348855,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783918.7346158,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783918.7341788,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783915.5170083,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 0,
+      "dst_port": 0,
+      "protocol": "ICMP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 1,
+        "icmp_type": 3,
+        "icmp_code": 3
+      }
+    },
+    {
+      "timestamp": 1748783914.0957015,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783913.7257206,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783913.7254615,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783913.7251225,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783908.9435372,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783908.941979,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783908.7240896,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783908.7238393,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783908.7235732,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783908.7232432,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 50727,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783908.7229319,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 42571,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783908.7225244,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 9831,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783907.996637,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.113.22",
+      "src_port": 45592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748783907.9963832,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.113.22",
+      "src_port": 45592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783907.9960573,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "140.82.113.22",
+      "src_port": 45592,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.5969167,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "FA"
+      }
+    },
+    {
+      "timestamp": 1748783906.5965455,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.277024,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2641602,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2639263,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.2636807,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.263319,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.258205,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2579584,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.25771,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2573693,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.2526102,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2523713,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.2521036,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2518303,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.250804,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2505705,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.2503166,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2500515,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.2497942,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.2495067,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.2491593,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783906.248772,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783906.0001109,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9996982,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9924035,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9921308,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9917736,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9913614,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9889102,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.988673,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9884298,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.988165,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9879029,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9876614,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9874082,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9871368,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.986884,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9866297,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9863362,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.9860172,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.9857216,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.98537,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.7237294,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.723478,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.723215,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.7229772,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.7227366,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.7224927,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.722199,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.7219222,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.7216573,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.7213566,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.7191215,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.4356375,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.434659,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783905.1661208,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783905.165667,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783904.9161284,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "20.42.73.24",
+      "src_port": 33028,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "S"
+      }
+    },
+    {
+      "timestamp": 1748783904.8818336,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 33732,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783904.812568,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "172.20.10.1",
+      "src_port": 55510,
+      "dst_port": 53,
+      "protocol": "UDP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 17
+      }
+    },
+    {
+      "timestamp": 1748783903.9571989,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783903.7126722,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    },
+    {
+      "timestamp": 1748783903.712381,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "A"
+      }
+    },
+    {
+      "timestamp": 1748783903.711966,
+      "src_ip": "172.20.10.3",
+      "dst_ip": "51.104.15.252",
+      "src_port": 33656,
+      "dst_port": 443,
+      "protocol": "TCP",
+      "action": "ALLOW",
+      "details": {
+        "protocol": 6,
+        "flags": "PA"
+      }
+    }
+  ],
+  "system_events": [
+    {
+      "timestamp": 1751217766.7926178,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751217766.7925117,
+      "event": "Applied OS-level firewall rules with queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751217766.7593834,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751217766.7592769,
+      "event": "NetfilterQueue bound to queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751217760.2029886,
+      "event": "Loaded 1 firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751217760.202887,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751217760.202657,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216829.7562222,
+      "event": "Firewall stopped",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216829.7560756,
+      "event": "iptables command not found. No OS-level firewall rules to remove.",
+      "level": "WARNING",
+      "details": null
+    },
+    {
+      "timestamp": 1751216829.7543423,
+      "event": "Packet interceptor stopped",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216755.3343434,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216755.334221,
+      "event": "iptables command not found. OS-level firewall rules will not be applied.",
+      "level": "WARNING",
+      "details": null
+    },
+    {
+      "timestamp": 1751216755.3318853,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216755.3316445,
+      "event": "Error in packet queue: Failed to bind family 2. Are you root?",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1751216740.1331375,
+      "event": "Loaded 1 firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216740.132964,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1751216740.132747,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784903.0474153,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784903.0473151,
+      "event": "Applied OS-level firewall rules with queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784903.031663,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784903.031606,
+      "event": "NetfilterQueue bound to queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784898.3543456,
+      "event": "Firewall stopped",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784898.3542528,
+      "event": "Removed OS-level firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784898.3475175,
+      "event": "Packet interceptor stopped",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784869.3564224,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784869.356365,
+      "event": "Applied OS-level firewall rules with queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784869.3393135,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784869.3392584,
+      "event": "NetfilterQueue bound to queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784853.5759532,
+      "event": "Loaded 1 firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784853.5759044,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784853.575792,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784235.8004186,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784235.8003569,
+      "event": "Applied OS-level firewall rules with queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784235.7840197,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784235.7839284,
+      "event": "NetfilterQueue bound to queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784227.7307482,
+      "event": "Loaded 1 firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784227.7306976,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784227.730602,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784159.4944425,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784159.4943838,
+      "event": "Applied OS-level firewall rules with queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784159.4779446,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784159.477879,
+      "event": "NetfilterQueue bound to queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784157.4330335,
+      "event": "Loaded 1 firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784157.43296,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784157.4328415,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784004.1643074,
+      "event": "Firewall stopped",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784004.1642368,
+      "event": "Removed OS-level firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748784004.1565373,
+      "event": "Packet interceptor stopped",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783940.118576,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783939.1155639,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783938.1146145,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783937.1132352,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783936.1124678,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783935.1113052,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783934.1103187,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783933.109319,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783932.1087575,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783931.1073694,
+      "event": "Error processing packet: 'LogViewerWidget' object has no attribute 'refresh_logs'",
+      "level": "ERROR",
+      "details": null
+    },
+    {
+      "timestamp": 1748783903.60931,
+      "event": "Firewall started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783903.6092484,
+      "event": "Applied OS-level firewall rules with queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783903.5906155,
+      "event": "Packet interceptor started",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783903.590525,
+      "event": "NetfilterQueue bound to queue 1",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783891.6247935,
+      "event": "Loaded 1 firewall rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783891.6247444,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    },
+    {
+      "timestamp": 1748783891.624639,
+      "event": "Loaded 1 active rules out of 1 total rules",
+      "level": "INFO",
+      "details": null
+    }
+  ]
+}

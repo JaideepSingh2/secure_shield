@@ -1,0 +1,13 @@
+[
+    {
+        "name": "Block",
+        "protocol": "ANY",
+        "action": "BLOCK",
+        "profile": "default",
+        "priority": 50,
+        "enabled": true,
+        "description": "",
+        "dst_ip": "8.8.8.8",
+        "id": "9a7f8d74-9c7b-43a8-ab8c-28a41b4e72f5"
+    }
+]
