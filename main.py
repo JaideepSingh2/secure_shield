@@ -863,28 +863,68 @@ class ScanManager:
     def _execute_scan_thread(self, path, scan_window, status_var, progress, scan_results, scan_type, current_file_var=None):
         """Execute scan in a separate thread"""
         try:
+            print(f"DEBUG: Starting scan of {path}")
+            print(f"DEBUG: Engine path: {self.engine_path}")
+            
+            # Check if engine exists and is executable
+            if not os.path.exists(self.engine_path):
+                raise Exception(f"Engine not found at {self.engine_path}")
+            
+            if not os.access(self.engine_path, os.X_OK):
+                raise Exception(f"Engine is not executable: {self.engine_path}")
+            
             # Execute engine and capture output
             process = subprocess.Popen(
                 [self.engine_path, path], 
                 stdout=subprocess.PIPE, 
                 stderr=subprocess.PIPE,
-                universal_newlines=True
+                universal_newlines=True,
+                bufsize=1  # Line buffered for real-time output
             )
             
-            # Read and process output
+            print(f"DEBUG: Process started with PID {process.pid}")
+            
+            # Read stderr in a separate thread to avoid blocking
+            stderr_lines = []
+            def read_stderr():
+                for line in process.stderr:
+                    stderr_lines.append(line.strip())
+                    print(f"ENGINE STDERR: {line.strip()}")
+            
+            import threading
+            stderr_thread = threading.Thread(target=read_stderr, daemon=True)
+            stderr_thread.start()
+            
+            # Read and process stdout
+            line_count = 0
             while True:
                 output_line = process.stdout.readline()
                 if not output_line and process.poll() is not None:
                     break
                 
                 if output_line:
-                    # Process the output line and store relevant information
+                    line_count += 1
+                    output_line = output_line.strip()
+                    print(f"ENGINE STDOUT #{line_count}: {output_line}")
+                    
+                    # Process the output line
                     self._process_scan_output(output_line, scan_results, scan_type)
                     
-                    # Update current file being scanned for directory scan
+                    # Update UI for file scanning progress
                     if current_file_var and output_line.startswith("[R] FILE_SCANNING:"):
-                        file_path = output_line[17:].strip()
-                        scan_window.after(0, lambda: current_file_var.set(f"Scanning: {os.path.basename(file_path)}"))
+                        file_path = output_line[18:].strip()  # Remove "[R] FILE_SCANNING:" prefix
+                        filename = os.path.basename(file_path)
+                        scan_window.after(0, lambda f=filename: current_file_var.set(f"Scanning: {f}"))
+                        scan_window.after(0, lambda f=filename: status_var.set(f"Scanning: {f}"))
+            
+            # Wait for process to complete
+            return_code = process.wait()
+            print(f"DEBUG: Process completed with return code {return_code}")
+            print(f"DEBUG: Total lines read: {line_count}")
+            print(f"DEBUG: Final scan results: {scan_results}")
+            
+            if stderr_lines:
+                print(f"DEBUG: STDERR output: {stderr_lines}")
             
             # Store log for detailed view later
             scan_results["scan_logs"].append(f"✅ Scan completed on {path}")
@@ -897,6 +937,7 @@ class ScanManager:
             scan_window.after(0, lambda: self._show_scan_results(path, scan_window, status_var, progress, scan_results, scan_type))
             
         except Exception as e:
+            print(f"DEBUG: Exception in scan thread: {e}")
             error_message = f"Error: {str(e)}"
             scan_results["scan_logs"].append(error_message)
             scan_window.after(0, lambda: status_var.set(error_message))
@@ -905,7 +946,10 @@ class ScanManager:
     def _process_scan_output(self, output_line, scan_results, scan_type):
         """Process a line of output from the scanning engine"""
         # Add raw output to logs for detailed view
-        scan_results["scan_logs"].append(output_line.strip())
+        scan_results["scan_logs"].append(output_line)
+        
+        # Debug: Print all output lines to see what the engine is outputting
+        print(f"DEBUG: Processing line: {output_line}")
         
         # Only process result lines that start with [R]
         if output_line.startswith("[R]"):
@@ -913,10 +957,16 @@ class ScanManager:
             result_line = output_line[4:].strip()  # Remove "[R] " prefix
             parts = result_line.split(":", 3)  # Split by first 3 colons
             
+            print(f"DEBUG: Parsed parts: {parts}")
+            
             if len(parts) >= 1:
-                if parts[0] == "DETECTION" and len(parts) >= 3:
-                    detected_path = parts[2]
+                command = parts[0]
+                
+                if command == "DETECTION" and len(parts) >= 3:
                     rule_name = parts[1]
+                    detected_path = parts[2]
+                    
+                    print(f"DEBUG: DETECTION found - rule: {rule_name}, path: {detected_path}")
                     
                     # Track this file and its threats
                     if detected_path not in scan_results["file_threats"]:
@@ -924,21 +974,52 @@ class ScanManager:
                     scan_results["file_threats"][detected_path].append(rule_name)
                     scan_results["detection_files"].add(detected_path)
                     scan_results["threats_found"] = True
+                    
+                    print(f"DEBUG: Updated scan_results: threats_found={scan_results['threats_found']}, file_threats={scan_results['file_threats']}")
                 
-                elif parts[0] == "UNSAFE" and len(parts) >= 4:
+                elif command == "UNSAFE" and len(parts) >= 4:
                     unsafe_path = parts[1]
+                    threat_count = parts[2]
                     threats = parts[3]
+                    
+                    print(f"DEBUG: UNSAFE found - path: {unsafe_path}, count: {threat_count}, threats: {threats}")
                     
                     # Track this file
                     scan_results["detection_files"].add(unsafe_path)
                     scan_results["threats_found"] = True
                     
-                    # Track threats
+                    # Track threats - split the threat names properly
+                    threat_list = [t.strip() for t in threats.split(",") if t.strip()]
                     if unsafe_path not in scan_results["file_threats"]:
-                        scan_results["file_threats"][unsafe_path] = threats.split(", ")
+                        scan_results["file_threats"][unsafe_path] = threat_list
+                    else:
+                        scan_results["file_threats"][unsafe_path].extend(threat_list)
+                    
+                    print(f"DEBUG: Updated scan_results: threats_found={scan_results['threats_found']}, file_threats={scan_results['file_threats']}")
+                
+                elif command == "SAFE" and len(parts) >= 2:
+                    safe_path = parts[1]
+                    print(f"DEBUG: SAFE found for path: {safe_path}")
+                    # File is safe - no action needed as threats_found defaults to False
+                    pass
+                
+                elif command in ["FILE_SCANNING", "SCAN_START", "SCAN_COMPLETE"]:
+                    # These are just progress indicators
+                    print(f"DEBUG: Progress indicator: {command}")
+                    pass
+                
+                else:
+                    print(f"DEBUG: Unknown command: {command}")
     
     def _show_scan_results(self, path, scan_window, status_var, progress, scan_results, scan_type):
         """Show scan results after scan completes"""
+        print(f"DEBUG: _show_scan_results called with:")
+        print(f"  path: {path}")
+        print(f"  scan_type: {scan_type}")
+        print(f"  threats_found: {scan_results['threats_found']}")
+        print(f"  file_threats: {scan_results['file_threats']}")
+        print(f"  detection_files: {scan_results['detection_files']}")
+        
         # Stop the progress bar
         progress.stop()
         
@@ -947,14 +1028,32 @@ class ScanManager:
         
         # Check if threats were found
         if scan_results["threats_found"]:
+            print("DEBUG: Threats were found, determining how to show them")
+            
             if scan_type == "file":
-                # For file scan, there's only one file with threats
-                self._show_threat_options(path, scan_results["file_threats"][path], scan_results["scan_logs"])
+                # For file scan, find the threats for this specific file
+                file_threats = scan_results["file_threats"].get(path, [])
+                print(f"DEBUG: File scan - threats for {path}: {file_threats}")
+                
+                if file_threats:
+                    print("DEBUG: Showing threat options for file")
+                    self._show_threat_options(path, file_threats, scan_results["scan_logs"])
+                else:
+                    # Check if the file is in detection_files but not in file_threats
+                    # This might happen with some detection formats
+                    if path in scan_results["detection_files"]:
+                        print("DEBUG: File in detection_files but no specific threats, showing unknown threat")
+                        self._show_threat_options(path, ["Unknown threat detected"], scan_results["scan_logs"])
+                    else:
+                        print("DEBUG: No threats found for this specific file, showing safe notification")
+                        self._show_safe_notification(path, scan_type, scan_results["scan_logs"])
             else:
                 # For directory scan, show summary with option to view details
+                print("DEBUG: Directory scan with threats, showing summary")
                 self._show_directory_scan_summary(path, scan_results["file_threats"], scan_results["scan_logs"])
         else:
             # No threats found
+            print("DEBUG: No threats found, showing safe notification")
             self._show_safe_notification(path, scan_type, scan_results["scan_logs"])
     
     def _show_threat_options(self, file_path, threats, scan_logs):
