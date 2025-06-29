@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyc
+*.pyo
+
+# Editor files
+*.kate-swp
+*.swp
+*.swo
+*~
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git files
+FETCH_HEAD
+
+# Application specific - sensitive data
+password_manager/src/config.json
+password_manager/src/passwords.enc
+antivirus/secureshield.db
+config.json
+passwords.enc
+*.log
+
+# Temporary Python files
+tempCodeRunnerFile.py
+*tempCodeRunnerFile*
+
+# Temporary files
+*.tmp
+*.bak
+git
+
+# Development files
+.pytest_cache/
+.coverage
+*.cover
+.hypothesis/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
