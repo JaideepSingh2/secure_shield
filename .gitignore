@@ -40,11 +40,11 @@ Thumbs.db
 FETCH_HEAD
 
 # Application specific - sensitive data
+password_manager/config.json
+password_manager/passwords.enc
 password_manager/src/config.json
 password_manager/src/passwords.enc
 antivirus/secureshield.db
-config.json
-passwords.enc
 *.log
 
 # Temporary Python files

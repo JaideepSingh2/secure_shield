@@ -7,8 +7,15 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.fernet import Fernet
 
 class MasterPasswordAuth:
-    def __init__(self, config_file="config.json"):
-        self.config_file = config_file
+    def __init__(self, config_file=None):
+        # Set default config file path within the password_manager directory
+        if config_file is None:
+            # Get the directory where this script is located (password_manager/src)
+            current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            self.config_file = os.path.join(current_dir, "config.json")
+        else:
+            self.config_file = config_file
+            
         self.salt = None
         self.master_hash = None
         self.encryption_key = None

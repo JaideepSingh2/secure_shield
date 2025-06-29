@@ -3,14 +3,21 @@ import json
 from .encryption import PasswordEncryption
 
 class PasswordStore:
-    def __init__(self, storage_file="passwords.enc", encryption=None):
+    def __init__(self, storage_file=None, encryption=None):
         """Initialize the password storage system"""
-        self.storage_file = storage_file
+        # Set default storage file path within the password_manager directory
+        if storage_file is None:
+            # Get the directory where this script is located (password_manager/src)
+            current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            self.storage_file = os.path.join(current_dir, "passwords.enc")
+        else:
+            self.storage_file = storage_file
+            
         self.encryption = encryption
         self.passwords = {}
         
         # Load passwords if the storage file exists
-        if os.path.exists(storage_file):
+        if os.path.exists(self.storage_file):
             self.load_passwords()
     
     def set_encryption(self, encryption):
