@@ -66,3 +66,4 @@ git
 *.db
 *.sqlite
 *.sqlite3
+antivirus/secureshield.db
