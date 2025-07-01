@@ -91,26 +91,39 @@ class DatabaseManager:
     """Manages database operations for the antivirus application"""
     def __init__(self):
         self.db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "antivirus", "secureshield.db")
-        self.conn = self._create_connection()
+        # Don't create a connection in __init__ as this might be called in the main thread
+        # but used in other threads
+        self.conn = None
         self._initialize_database()
     
-    def _create_connection(self):
-        """Create a database connection to the SQLite database"""
-        try:
-            return sqlite3.connect(self.db_path)
-        except sqlite3.Error as e:
-            print(f"Database error: {e}")
-            return None
+    def _get_connection(self):
+        """Get a thread-safe database connection"""
+        # This ensures each thread gets its own connection
+        if not hasattr(self, '_thread_local'):
+            import threading
+            self._thread_local = threading.local()
+            
+        if not hasattr(self._thread_local, 'conn'):
+            try:
+                self._thread_local.conn = sqlite3.connect(self.db_path)
+            except sqlite3.Error as e:
+                print(f"Database error: {e}")
+                return None
+        
+        return self._thread_local.conn
     
-# Add these methods to the DatabaseManager class
-
+    def _create_connection(self):
+        """Create a database connection to the SQLite database (legacy method)"""
+        return self._get_connection()
+    
     def _initialize_database(self):
         """Create necessary tables if they don't exist"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             
             # Create exceptions table
             cursor.execute('''
@@ -144,22 +157,23 @@ class DatabaseManager:
             )
             ''')
             
-            self.conn.commit()
+            conn.commit()
         except sqlite3.Error as e:
             print(f"Database initialization error: {e}")
-
+            
     def add_threat_history(self, file_path, threat_type, action_taken="No action"):
         """Add a detected threat to history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute(
                 "INSERT INTO threat_history (file_path, threat_type, action_taken) VALUES (?, ?, ?)",
                 (file_path, threat_type, action_taken)
             )
-            self.conn.commit()
+            conn.commit()
             return True
         except sqlite3.Error as e:
             print(f"Error adding threat history: {e}")
@@ -167,11 +181,12 @@ class DatabaseManager:
 
     def get_threat_history(self, limit=50):
         """Get recent threat history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return []
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute(
                 "SELECT date_detected, file_path, threat_type, action_taken FROM threat_history ORDER BY date_detected DESC LIMIT ?",
                 (limit,)
@@ -183,7 +198,8 @@ class DatabaseManager:
 
     def get_filtered_scan_history(self, scan_type=None, start_date=None, end_date=None, limit=50):
         """Get filtered scan history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return []
         
         try:
@@ -209,7 +225,7 @@ class DatabaseManager:
             query += " ORDER BY date_scanned DESC LIMIT ?"
             params.append(limit)
             
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute(query, params)
             return cursor.fetchall()
         except sqlite3.Error as e:
@@ -218,13 +234,14 @@ class DatabaseManager:
 
     def clear_scan_history(self):
         """Clear all scan history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute("DELETE FROM scan_history")
-            self.conn.commit()
+            conn.commit()
             return True
         except sqlite3.Error as e:
             print(f"Error clearing scan history: {e}")
@@ -232,69 +249,74 @@ class DatabaseManager:
 
     def clear_threat_history(self):
         """Clear all threat history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute("DELETE FROM threat_history")
-            self.conn.commit()
+            conn.commit()
             return True
         except sqlite3.Error as e:
             print(f"Error clearing threat history: {e}")
             return False
-        
+            
     def add_exception(self, file_path, reason=None):
         """Add a file to exceptions"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute(
                 "INSERT OR REPLACE INTO exceptions (file_path, reason) VALUES (?, ?)",
                 (file_path, reason)
             )
-            self.conn.commit()
+            conn.commit()
             return True
         except sqlite3.Error as e:
             print(f"Error adding exception: {e}")
             return False
-    
+   
     def remove_exception(self, file_path):
         """Remove a file from exceptions"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute("DELETE FROM exceptions WHERE file_path = ?", (file_path,))
-            self.conn.commit()
+            conn.commit()
             return cursor.rowcount > 0
         except sqlite3.Error as e:
             print(f"Error removing exception: {e}")
             return False
-    
+
     def get_all_exceptions(self):
         """Get all file exceptions"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return []
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute("SELECT file_path, reason, date_added FROM exceptions ORDER BY date_added DESC")
             return cursor.fetchall()
         except sqlite3.Error as e:
             print(f"Error getting exceptions: {e}")
             return []
-    
+            
     def is_file_excepted(self, file_path):
         """Check if a file is in exceptions"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute("SELECT 1 FROM exceptions WHERE file_path = ?", (file_path,))
             return cursor.fetchone() is not None
         except sqlite3.Error as e:
@@ -303,28 +325,30 @@ class DatabaseManager:
     
     def add_scan_history(self, scan_type, path, threats_found):
         """Add a scan to history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return False
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute(
                 "INSERT INTO scan_history (scan_type, path, threats_found) VALUES (?, ?, ?)",
                 (scan_type, path, threats_found)
             )
-            self.conn.commit()
+            conn.commit()
             return True
         except sqlite3.Error as e:
             print(f"Error adding scan history: {e}")
-            return False
-    
+            return False    
+        
     def get_scan_history(self, limit=50):
         """Get recent scan history"""
-        if not self.conn:
+        conn = self._get_connection()
+        if not conn:
             return []
         
         try:
-            cursor = self.conn.cursor()
+            cursor = conn.cursor()
             cursor.execute(
                 "SELECT scan_type, path, threats_found, date_scanned FROM scan_history ORDER BY date_scanned DESC LIMIT ?",
                 (limit,)
@@ -332,12 +356,13 @@ class DatabaseManager:
             return cursor.fetchall()
         except sqlite3.Error as e:
             print(f"Error getting scan history: {e}")
-            return []
-    
+            return []  
+          
     def close(self):
         """Close the database connection"""
-        if self.conn:
-            self.conn.close()
+        if hasattr(self, '_thread_local') and hasattr(self._thread_local, 'conn'):
+            self._thread_local.conn.close()
+            del self._thread_local.conn
 
 class StyleManager:
     """Manages application styling and themes"""
@@ -966,6 +991,11 @@ class ScanManager:
                     rule_name = parts[1]
                     detected_path = parts[2]
                     
+                    # Check if this file is in exceptions
+                    if self.app.db_manager.is_file_excepted(detected_path):
+                        print(f"DEBUG: Ignoring detection for excepted file: {detected_path}")
+                        return
+                    
                     print(f"DEBUG: DETECTION found - rule: {rule_name}, path: {detected_path}")
                     
                     # Track this file and its threats
@@ -982,6 +1012,11 @@ class ScanManager:
                     threat_count = parts[2]
                     threats = parts[3]
                     
+                    # Check if this file is in exceptions
+                    if self.app.db_manager.is_file_excepted(unsafe_path):
+                        print(f"DEBUG: Ignoring unsafe file (in exceptions): {unsafe_path}")
+                        return
+                    
                     print(f"DEBUG: UNSAFE found - path: {unsafe_path}, count: {threat_count}, threats: {threats}")
                     
                     # Track this file
@@ -996,21 +1031,7 @@ class ScanManager:
                         scan_results["file_threats"][unsafe_path].extend(threat_list)
                     
                     print(f"DEBUG: Updated scan_results: threats_found={scan_results['threats_found']}, file_threats={scan_results['file_threats']}")
-                
-                elif command == "SAFE" and len(parts) >= 2:
-                    safe_path = parts[1]
-                    print(f"DEBUG: SAFE found for path: {safe_path}")
-                    # File is safe - no action needed as threats_found defaults to False
-                    pass
-                
-                elif command in ["FILE_SCANNING", "SCAN_START", "SCAN_COMPLETE"]:
-                    # These are just progress indicators
-                    print(f"DEBUG: Progress indicator: {command}")
-                    pass
-                
-                else:
-                    print(f"DEBUG: Unknown command: {command}")
-    
+
     def _show_scan_results(self, path, scan_window, status_var, progress, scan_results, scan_type):
         """Show scan results after scan completes"""
         print(f"DEBUG: _show_scan_results called with:")
@@ -1048,14 +1069,59 @@ class ScanManager:
                         print("DEBUG: No threats found for this specific file, showing safe notification")
                         self._show_safe_notification(path, scan_type, scan_results["scan_logs"])
             else:
-                # For directory scan, show summary with option to view details
-                print("DEBUG: Directory scan with threats, showing summary")
-                self._show_directory_scan_summary(path, scan_results["file_threats"], scan_results["scan_logs"])
+                # For directory scan, show individual threat options for each detected file
+                print("DEBUG: Directory scan with threats, showing individual threat options")
+                
+                # First show a summary notification of how many files were detected
+                total_threats = len(scan_results["file_threats"])
+                if total_threats > 0:
+                    summary = DirectoryScanSummaryWindow(
+                        self.app, 
+                        path, 
+                        scan_results["file_threats"], 
+                        scan_results["scan_logs"],
+                        show_files=False  # Don't show file details in this summary
+                    )
+                    
+                    # Set the callback to show threats when user clicks "View Threats"
+                    summary.set_view_threats_callback(
+                        lambda: self._show_directory_threat_popups(scan_results["file_threats"], scan_results["scan_logs"])
+                    )
+                else:
+                    self._show_safe_notification(path, scan_type, scan_results["scan_logs"])
         else:
             # No threats found
             print("DEBUG: No threats found, showing safe notification")
             self._show_safe_notification(path, scan_type, scan_results["scan_logs"])
-    
+
+    def _show_directory_threat_popups(self, file_threats, scan_logs):
+        """Show threat options popup for each infected file in sequence"""
+        if not file_threats:
+            return
+        
+        # Convert dict to list of (file_path, threats) tuples
+        threat_list = list(file_threats.items())
+        
+        # Define a recursive function to show popups one after another
+        def show_next_popup(index=0):
+            if index >= len(threat_list):
+                return  # All popups shown
+                
+            file_path, threats = threat_list[index]
+            
+            # Create a threat options window for this file
+            popup = ThreatOptionsWindow(
+                self.app, 
+                file_path, 
+                threats, 
+                scan_logs,
+                # Callback when this popup is closed to show the next one
+                on_close=lambda: show_next_popup(index + 1)
+            )
+        
+        # Start showing popups
+        show_next_popup()
+
     def _show_threat_options(self, file_path, threats, scan_logs):
         """Show options for dealing with a threat"""
         ThreatOptionsWindow(self.app, file_path, threats, scan_logs)
@@ -1348,6 +1414,10 @@ class RTMManager:
                             rule_name = parts[1]
                             timestamp = self.app.get_timestamp()
                             
+                            # Skip if file is in exceptions
+                            if self.db_manager.is_file_excepted(detected_path):
+                                continue
+                            
                             # Track threats for this file
                             if detected_path not in self.file_threats:
                                 self.file_threats[detected_path] = []
@@ -1356,8 +1426,8 @@ class RTMManager:
                             # Add to logs (only visible if user chooses to view logs)
                             def show_detection(p=detected_path, r=rule_name, t=timestamp):
                                 self.app.layout_manager.output_text_rtm.insert(tk.END, 
-                                                                          f"{t} ⚠️ DETECTION: Rule '{r}' matched in {p}\n", 
-                                                                          "detection")
+                                                                        f"{t} ⚠️ DETECTION: Rule '{r}' matched in {p}\n", 
+                                                                        "detection")
                                 self.app.layout_manager.output_text_rtm.see(tk.END)
                             
                             self.app.root.after(0, show_detection)
@@ -1367,6 +1437,10 @@ class RTMManager:
                             threat_count = parts[2]
                             threats = parts[3]
                             timestamp = self.app.get_timestamp()
+                            
+                            # Skip if file is in exceptions
+                            if self.db_manager.is_file_excepted(unsafe_path):
+                                continue
                             
                             # Only show alert if this is the first time seeing this file
                             if unsafe_path not in self.detected_files:
@@ -1392,15 +1466,15 @@ class RTMManager:
                             # Add to logs (only visible if user chooses to view logs)
                             def show_unsafe(p=unsafe_path, c=threat_count, t_rules=threats, t=timestamp):
                                 self.app.layout_manager.output_text_rtm.insert(tk.END, 
-                                                                          f"{t} ❌ UNSAFE: Found {c} threat(s) in {p}\n", 
-                                                                          "unsafe")
+                                                                        f"{t} ❌ UNSAFE: Found {c} threat(s) in {p}\n", 
+                                                                        "unsafe")
                                 self.app.layout_manager.output_text_rtm.insert(tk.END, 
-                                                                          f"   Matched rules: {t_rules}\n", 
-                                                                          "unsafe_details")
+                                                                        f"   Matched rules: {t_rules}\n", 
+                                                                        "unsafe_details")
                                 self.app.layout_manager.output_text_rtm.see(tk.END)
                             
                             self.app.root.after(0, show_unsafe)
-                            
+                        
                         elif parts[0] == "FILE_MODIFIED":
                             timestamp = self.app.get_timestamp()
                             modified_path = parts[1]
@@ -1461,17 +1535,19 @@ class RTMManager:
 
 class ThreatOptionsWindow:
     """Window for showing threat options to the user"""
-    def __init__(self, app, file_path, threats, scan_logs=None, is_rtm=False):
+    def __init__(self, app, file_path, threats, scan_logs=None, is_rtm=False, on_close=None):
         self.app = app
         self.file_path = file_path
         self.threats = threats
         self.scan_logs = scan_logs or []
         self.is_rtm = is_rtm
+        self.on_close = on_close  # Callback to execute when window is closed
+        self.action_taken = False  # Flag to track if user took action
         
         # Create window
         self.window = tk.Toplevel(app.root)
         self.window.title("⚠️ Threat Detected!")
-        self.window.geometry("500x340")
+        self.window.geometry("500x360")
         self.window.configure(bg=COLORS["bg_dark"])
         
         # Give it focus and make it modal
@@ -1482,8 +1558,34 @@ class ThreatOptionsWindow:
         # Add some warning styling
         self.window.attributes('-topmost', True)
         
+        # Override the close button to check if action was taken
+        self.window.protocol("WM_DELETE_WINDOW", self._handle_close_attempt)
+        
         self.setup_ui()
     
+    def _handle_close_attempt(self):
+        """Handle attempts to close the window"""
+        if self.action_taken:
+            # If action was taken, allow window to close
+            self._on_window_close()
+        else:
+            # If no action taken, show warning message
+            messagebox.showwarning(
+                "Action Required", 
+                "You must either delete the file or add it as an exception.\n\n"
+                "Security threats cannot be ignored.",
+                parent=self.window
+            )
+    
+    def _on_window_close(self):
+        """Handle window close event when action has been taken"""
+        self.window.grab_release()
+        self.window.destroy()
+        
+        # Execute callback if provided
+        if self.on_close:
+            self.on_close()
+
     def setup_ui(self):
         """Set up the UI elements"""
         # Warning icon and header
@@ -1567,12 +1669,10 @@ class ThreatOptionsWindow:
                             command=self.show_details)
         details_btn.pack(side=tk.LEFT, padx=10)
         
-        # Exception button (changed from "Ignore")
+        # Exception button
         except_btn = ttk.Button(button_frame, text="Add as Exception", style="Secondary.TButton",
                             command=self.add_exception)
         except_btn.pack(side=tk.RIGHT)
-    
-# Update these methods in the ThreatOptionsWindow class
 
     def delete_file(self):
         """Delete the infected file"""
@@ -1583,6 +1683,9 @@ class ThreatOptionsWindow:
             # Record this action in threat history
             threat_types = ", ".join(self.threats) if isinstance(self.threats, list) else self.threats
             self.app.db_manager.add_threat_history(self.file_path, threat_types, "Deleted")
+            
+            # Set action taken flag to true
+            self.action_taken = True
             
             # Update alert to show success
             for widget in self.window.winfo_children():
@@ -1597,7 +1700,7 @@ class ThreatOptionsWindow:
             
             # Add close button
             ttk.Button(success_frame, text="Close", style="Secondary.TButton",
-                    command=self.window.destroy).pack(pady=10)
+                    command=self._on_window_close).pack(pady=10)
             
         except Exception as e:
             # Show error if deletion fails
@@ -1637,9 +1740,12 @@ class ThreatOptionsWindow:
                     f"Added to exceptions: {reason_entry.get() if reason_entry.get() else 'No reason provided'}"
                 )
                 
+                # Set action taken flag to true
+                self.action_taken = True
+                
                 messagebox.showinfo("Success", "File added to exceptions list.", parent=reason_dialog)
                 reason_dialog.destroy()
-                self.window.destroy()
+                self._on_window_close()
             else:
                 messagebox.showerror("Error", "Failed to add exception. Please try again.", parent=reason_dialog)
         
@@ -1648,7 +1754,6 @@ class ThreatOptionsWindow:
         
         ttk.Button(btn_frame, text="Cancel", style="Secondary.TButton",
                 command=reason_dialog.destroy).pack(side=tk.RIGHT)
-
     
     def show_details(self):
         """Show detailed threat information and logs"""
@@ -1730,18 +1835,19 @@ class ThreatOptionsWindow:
         # Bottom buttons
         btn_frame = ttk.Frame(details_window)
         btn_frame.pack(fill=tk.X, padx=20, pady=20)
-        
+                
         ttk.Button(btn_frame, text="Close", style="Secondary.TButton",
                 command=details_window.destroy).pack(side=tk.RIGHT)
 
-
 class DirectoryScanSummaryWindow:
     """Window for showing directory scan summary with threats"""
-    def __init__(self, app, dir_path, file_threats, scan_logs=None):
+    def __init__(self, app, dir_path, file_threats, scan_logs=None, show_files=True):
         self.app = app
         self.dir_path = dir_path
         self.file_threats = file_threats
         self.scan_logs = scan_logs or []
+        self.show_files = show_files
+        self.view_threats_callback = None
         
         # Create window
         self.window = tk.Toplevel(app.root)
@@ -1755,6 +1861,10 @@ class DirectoryScanSummaryWindow:
         self.window.grab_set()
         
         self.setup_ui()
+    
+    def set_view_threats_callback(self, callback):
+        """Set the callback function for viewing threats"""
+        self.view_threats_callback = callback
     
     def setup_ui(self):
         """Set up the UI elements"""
@@ -1786,87 +1896,132 @@ class DirectoryScanSummaryWindow:
         ttk.Label(path_frame, text=self.dir_path, 
                 style='Info.TLabel').pack(side=tk.LEFT, padx=5)
         
-        # Create notebook for tabbed interface
-        notebook = ttk.Notebook(self.window)
-        notebook.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
-        
-        # Tab 1: Detected threats summary
-        threats_frame = ttk.Frame(notebook)
-        notebook.add(threats_frame, text="Threats Found")
-        
-        # Use Treeview to show threat files
-        columns = ('file', 'threats', 'count')
-        threats_treeview = ttk.Treeview(threats_frame, columns=columns, show='headings')
-        
-        # Define headings
-        threats_treeview.heading('file', text='File')
-        threats_treeview.heading('threats', text='Detected Threats')
-        threats_treeview.heading('count', text='Count')
-        
-        # Define column widths
-        threats_treeview.column('file', width=300)
-        threats_treeview.column('threats', width=300)
-        threats_treeview.column('count', width=50, anchor='center')
-        
-        # Add a scrollbar
-        scrollbar = ttk.Scrollbar(threats_frame, orient=tk.VERTICAL, command=threats_treeview.yview)
-        threats_treeview.configure(yscroll=scrollbar.set)
-        scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-        threats_treeview.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-        
-        # Insert threat data
-        for filepath, threats in self.file_threats.items():
-            threats_treeview.insert('', tk.END, values=(
-                filepath,
-                ", ".join(threats),
-                len(threats)
-            ))
-        
-        # Bind double click to show details for specific file
-        threats_treeview.bind("<Double-1>", self.on_file_double_click)
-        
-        # Tab 2: Scan Logs
-        if self.scan_logs:
-            logs_frame = ttk.Frame(notebook)
-            notebook.add(logs_frame, text="Full Scan Log")
+        # If show_files is True, show the files table
+        if self.show_files:
+            # Create notebook for tabbed interface
+            notebook = ttk.Notebook(self.window)
+            notebook.pack(fill=tk.BOTH, expand=True, padx=20, pady=10)
             
-            logs_text = tk.Text(logs_frame, wrap='word',
-                              font=('Segoe UI', 10),
-                              bg=COLORS["bg_medium"],
-                              fg=COLORS["text"],
-                              border=0)
-            logs_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+            # Tab 1: Detected threats summary
+            threats_frame = ttk.Frame(notebook)
+            notebook.add(threats_frame, text="Threats Found")
             
-            logs_scrollbar = ttk.Scrollbar(logs_frame, orient="vertical", command=logs_text.yview)
-            logs_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-            logs_text.config(yscrollcommand=logs_scrollbar.set)
+            # Use Treeview to show threat files
+            columns = ('file', 'threats', 'count')
+            self.threats_treeview = ttk.Treeview(threats_frame, columns=columns, show='headings')
             
-            # Insert log data
-            for log_entry in self.scan_logs:
-                logs_text.insert(tk.END, f"{log_entry}\n")
+            # Define headings
+            self.threats_treeview.heading('file', text='File')
+            self.threats_treeview.heading('threats', text='Detected Threats')
+            self.threats_treeview.heading('count', text='Count')
+            
+            # Define column widths
+            self.threats_treeview.column('file', width=300)
+            self.threats_treeview.column('threats', width=300)
+            self.threats_treeview.column('count', width=50, anchor='center')
+            
+            # Add a scrollbar
+            scrollbar = ttk.Scrollbar(threats_frame, orient=tk.VERTICAL, command=self.threats_treeview.yview)
+            self.threats_treeview.configure(yscroll=scrollbar.set)
+            scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+            self.threats_treeview.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+            
+            # Insert threat data
+            for filepath, threats in self.file_threats.items():
+                self.threats_treeview.insert('', tk.END, values=(
+                    filepath,
+                    ", ".join(threats),
+                    len(threats)
+                ))
+            
+            # Bind double click to show details for specific file
+            self.threats_treeview.bind("<Double-1>", self.on_file_double_click)
+            
+            # Tab 2: Scan Logs
+            if self.scan_logs:
+                logs_frame = ttk.Frame(notebook)
+                notebook.add(logs_frame, text="Full Scan Log")
+                
+                logs_text = tk.Text(logs_frame, wrap='word',
+                                  font=('Segoe UI', 10),
+                                  bg=COLORS["bg_medium"],
+                                  fg=COLORS["text"],
+                                  border=0)
+                logs_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
+                
+                logs_scrollbar = ttk.Scrollbar(logs_frame, orient="vertical", command=logs_text.yview)
+                logs_scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+                logs_text.config(yscrollcommand=logs_scrollbar.set)
+                
+                # Insert log data
+                for log_entry in self.scan_logs:
+                    logs_text.insert(tk.END, f"{log_entry}\n")
+        else:
+            # Show a message instead of the file list
+            message_frame = ttk.Frame(self.window)
+            message_frame.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
+            
+            ttk.Label(
+                message_frame, 
+                text=f"Found {len(self.file_threats)} file(s) with security threats.",
+                style='Subtitle.TLabel',
+                foreground=COLORS["warning"]
+            ).pack(anchor=tk.CENTER, pady=10)
+            
+            ttk.Label(
+                message_frame, 
+                text="You can view each infected file individually to take action.",
+                style='Info.TLabel'
+            ).pack(anchor=tk.CENTER, pady=5)
+            
+            ttk.Label(
+                message_frame, 
+                text="Click 'View Threats' to examine each threat one by one.",
+                style='Info.TLabel'
+            ).pack(anchor=tk.CENTER, pady=5)
         
         # Button frame
         button_frame = ttk.Frame(self.window)
         button_frame.pack(fill=tk.X, padx=20, pady=20)
         
-        ttk.Button(button_frame, text="View Selected File", style="Primary.TButton",
-                command=self.view_selected_file).pack(side=tk.LEFT)
-        
-        ttk.Button(button_frame, text="Add All as Exceptions", style="Secondary.TButton",
-                command=self.add_all_exceptions).pack(side=tk.LEFT, padx=10)
+        if self.show_files:
+            ttk.Button(button_frame, text="View Selected File", style="Primary.TButton",
+                    command=self.view_selected_file).pack(side=tk.LEFT)
+            
+            ttk.Button(button_frame, text="Add All as Exceptions", style="Secondary.TButton",
+                    command=self.add_all_exceptions).pack(side=tk.LEFT, padx=10)
+        else:
+            # Show "View Threats" button that will trigger the view_threats_callback
+            ttk.Button(
+                button_frame, 
+                text="View Threats", 
+                style="Primary.TButton",
+                command=self.view_threats
+            ).pack(side=tk.LEFT)
         
         ttk.Button(button_frame, text="Close", style="Secondary.TButton",
                 command=self.window.destroy).pack(side=tk.RIGHT)
         
-        # Store the treeview for later access
-        self.threats_treeview = threats_treeview
+        if self.show_files:
+            # Store the treeview for later access
+            self.threats_treeview = self.threats_treeview
+    
+    def view_threats(self):
+        """Execute the view_threats_callback if set"""
+        if self.view_threats_callback:
+            self.window.destroy()  # Close this window first
+            self.view_threats_callback()  # Then show individual threat popups
     
     def on_file_double_click(self, event):
         """Handle double-click on a file in the threats list"""
-        self.view_selected_file()
+        if hasattr(self, 'threats_treeview'):
+            self.view_selected_file()
     
     def view_selected_file(self):
         """Show details for the selected file"""
+        if not hasattr(self, 'threats_treeview'):
+            return
+            
         selected_items = self.threats_treeview.selection()
         
         if not selected_items:
@@ -1915,7 +2070,6 @@ class DirectoryScanSummaryWindow:
                 f"Added {success_count} of {len(self.file_threats)} files to exceptions.", 
                 parent=self.window
             )
-
 
 class SafeScanNotificationWindow:
     """Window for showing notification when no threats are found"""
@@ -2300,12 +2454,9 @@ class HistoryManagerWindow:
         ttk.Button(button_frame, text="Clear History", style="Secondary.TButton",
                 command=self.confirm_clear_history).pack(side=tk.LEFT)
         
-        ttk.Button(button_frame, text="Export CSV", style="Secondary.TButton",
-                command=self.export_to_csv).pack(side=tk.LEFT, padx=10)
-        
         ttk.Button(button_frame, text="Close", style="Secondary.TButton",
                 command=self.window.destroy).pack(side=tk.RIGHT)
-    
+
     def setup_scan_history_tab(self):
         """Set up the scan history tab with treeview"""
         # Use Treeview to show scan history
