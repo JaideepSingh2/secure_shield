@@ -107,11 +107,11 @@ class MasterPasswordAuth:
         
         return self.encryption_key
 
-    def change_master_password(self, old_password, new_password):
+    def change_master_password(self, current_password, new_password):
         """Change the master password"""
-        # First authenticate with the old password
-        if not self.authenticate(old_password):
-            return False
+        # Verify current password first
+        if not self.authenticate(current_password):
+            raise ValueError("Current password is incorrect")
         
-        # Then set up the new password
-        return self.setup_master_password(new_password)
+        # Set up new master password (this will overwrite the old one)
+        self.setup_master_password(new_password)
