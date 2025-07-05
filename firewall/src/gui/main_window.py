@@ -827,7 +827,22 @@ class MainWindow(QMainWindow):
         """Handle application close event"""
         # Stop firewall if running
         if self.firewall_controller and hasattr(self.firewall_controller, 'is_running'):
-            if self.firewall_controller.is_running():
+            # Check if is_running is a property or method
+            try:
+                # Try as property first
+                if callable(getattr(self.firewall_controller, 'is_running')):
+                    is_running = self.firewall_controller.is_running()
+                else:
+                    is_running = self.firewall_controller.is_running
+            except (AttributeError, TypeError):
+                # Fallback to checking status
+                try:
+                    status = self.firewall_controller.status()
+                    is_running = status.get('running', False)
+                except:
+                    is_running = False
+            
+            if is_running:
                 reply = QMessageBox.question(
                     self, 
                     "Firewall Running", 
@@ -855,7 +870,7 @@ class MainWindow(QMainWindow):
             self.log_viewer.closeEvent(event)
         
         event.accept()
-
+        
     def sizeHint(self):
         """Return preferred size for the main window"""
         return QSize(1200, 800)
