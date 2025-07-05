@@ -1,33 +1,75 @@
 from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QPushButton, 
                            QDialog, QFormLayout, QLineEdit, QComboBox, QTableWidgetItem,
-                           QHeaderView, QCheckBox, QLabel, QMessageBox, QSpinBox)
+                           QHeaderView, QCheckBox, QLabel, QMessageBox, QSpinBox, QFrame)
 from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtGui import QFont
 
 class RuleDialog(QDialog):
-    """Dialog for creating or editing a firewall rule"""
+    """Dialog for creating or editing a firewall rule - unified styling"""
     def __init__(self, parent=None, rule=None):
         super().__init__(parent)
         self.rule = rule or {}
         self.setWindowTitle("Edit Rule" if rule else "Add Rule")
-        self.resize(400, 500)
+        self.resize(500, 600)
+        self.setStyleSheet("""
+            QDialog {
+                background-color: #1E1E1E;
+                color: #D4D4D4;
+            }
+        """)
         self._init_ui()
         
     def _init_ui(self):
-        layout = QFormLayout()
+        # Main layout
+        main_layout = QVBoxLayout()
+        main_layout.setContentsMargins(20, 20, 20, 20)
+        main_layout.setSpacing(15)
+        
+        # Header section
+        header_frame = QFrame()
+        header_frame.setStyleSheet("QFrame { border: none; background-color: transparent; }")
+        header_layout = QVBoxLayout(header_frame)
+        header_layout.setContentsMargins(0, 0, 0, 0)
+        
+        title = QLabel("Edit Rule" if self.rule else "Add New Rule")
+        title.setObjectName("title")
+        title.setStyleSheet("font-size: 16px; font-weight: bold; color: #007ACC; margin-bottom: 10px;")
+        header_layout.addWidget(title)
+        
+        subtitle = QLabel("Configure firewall rule parameters")
+        subtitle.setObjectName("info")
+        subtitle.setStyleSheet("color: #A0A0A0; font-size: 10px;")
+        header_layout.addWidget(subtitle)
+        
+        main_layout.addWidget(header_frame)
+        
+        # Form container
+        form_container = QFrame()
+        form_container.setStyleSheet("""
+            QFrame {
+                background-color: #252526;
+                border: 1px solid #454545;
+                border-radius: 8px;
+                padding: 20px;
+            }
+        """)
+        form_layout = QFormLayout(form_container)
+        form_layout.setSpacing(12)
         
         # Rule name
         self.name_edit = QLineEdit(self.rule.get('name', ''))
-        layout.addRow("Rule Name:", self.name_edit)
+        self.name_edit.setPlaceholderText("Enter a descriptive rule name")
+        form_layout.addRow(self._create_label("Rule Name:"), self.name_edit)
         
         # Source IP
         self.src_ip_edit = QLineEdit(self.rule.get('src_ip', ''))
-        self.src_ip_edit.setPlaceholderText("e.g. 192.168.1.10 or 192.168.1.0/24")
-        layout.addRow("Source IP:", self.src_ip_edit)
+        self.src_ip_edit.setPlaceholderText("e.g. 192.168.1.10 or 192.168.1.0/24 or * for any")
+        form_layout.addRow(self._create_label("Source IP:"), self.src_ip_edit)
         
         # Destination IP
         self.dst_ip_edit = QLineEdit(self.rule.get('dst_ip', ''))
-        self.dst_ip_edit.setPlaceholderText("e.g. 8.8.8.8 or 10.0.0.0/8")
-        layout.addRow("Destination IP:", self.dst_ip_edit)
+        self.dst_ip_edit.setPlaceholderText("e.g. 8.8.8.8 or 10.0.0.0/8 or * for any")
+        form_layout.addRow(self._create_label("Destination IP:"), self.dst_ip_edit)
         
         # Protocol
         self.protocol_combo = QComboBox()
@@ -36,17 +78,17 @@ class RuleDialog(QDialog):
             index = self.protocol_combo.findText(self.rule['protocol'])
             if index >= 0:
                 self.protocol_combo.setCurrentIndex(index)
-        layout.addRow("Protocol:", self.protocol_combo)
+        form_layout.addRow(self._create_label("Protocol:"), self.protocol_combo)
         
         # Source Port
         self.src_port_edit = QLineEdit(str(self.rule.get('src_port', '')))
-        self.src_port_edit.setPlaceholderText("e.g. 1024 or 1024-2048")
-        layout.addRow("Source Port:", self.src_port_edit)
+        self.src_port_edit.setPlaceholderText("e.g. 1024 or 1024-2048 or * for any")
+        form_layout.addRow(self._create_label("Source Port:"), self.src_port_edit)
         
         # Destination Port
         self.dst_port_edit = QLineEdit(str(self.rule.get('dst_port', '')))
-        self.dst_port_edit.setPlaceholderText("e.g. 80 or 80,443")
-        layout.addRow("Destination Port:", self.dst_port_edit)
+        self.dst_port_edit.setPlaceholderText("e.g. 80 or 80,443 or * for any")
+        form_layout.addRow(self._create_label("Destination Port:"), self.dst_port_edit)
         
         # Action
         self.action_combo = QComboBox()
@@ -55,41 +97,76 @@ class RuleDialog(QDialog):
             index = self.action_combo.findText(self.rule['action'])
             if index >= 0:
                 self.action_combo.setCurrentIndex(index)
-        layout.addRow("Action:", self.action_combo)
+        form_layout.addRow(self._create_label("Action:"), self.action_combo)
         
         # Profile
         self.profile_edit = QLineEdit(self.rule.get('profile', 'default'))
-        layout.addRow("Profile:", self.profile_edit)
+        self.profile_edit.setPlaceholderText("Rule profile/category")
+        form_layout.addRow(self._create_label("Profile:"), self.profile_edit)
         
         # Priority
         self.priority_spin = QSpinBox()
         self.priority_spin.setRange(1, 100)
         self.priority_spin.setValue(self.rule.get('priority', 50))
-        layout.addRow("Priority:", self.priority_spin)
+        form_layout.addRow(self._create_label("Priority:"), self.priority_spin)
         
         # Enabled
-        self.enabled_checkbox = QCheckBox()
+        self.enabled_checkbox = QCheckBox("Enable this rule")
         self.enabled_checkbox.setChecked(self.rule.get('enabled', True))
-        layout.addRow("Enabled:", self.enabled_checkbox)
+        form_layout.addRow("", self.enabled_checkbox)
         
         # Description
         self.description_edit = QLineEdit(self.rule.get('description', ''))
-        layout.addRow("Description:", self.description_edit)
+        self.description_edit.setPlaceholderText("Optional description for this rule")
+        form_layout.addRow(self._create_label("Description:"), self.description_edit)
+        
+        main_layout.addWidget(form_container)
         
         # Buttons
-        button_layout = QHBoxLayout()
+        button_frame = QFrame()
+        button_frame.setStyleSheet("QFrame { border: none; background-color: transparent; }")
+        button_layout = QHBoxLayout(button_frame)
+        button_layout.setContentsMargins(0, 20, 0, 0)
         
-        save_button = QPushButton("Save")
+        save_button = QPushButton("Save Rule")
+        save_button.setObjectName("success")
+        save_button.setStyleSheet("""
+            QPushButton {
+                background-color: #007ACC;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-weight: bold;
+                font-size: 11px;
+            }
+            QPushButton:hover {
+                background-color: #1F8AD2;
+            }
+        """)
         save_button.clicked.connect(self.accept)
         button_layout.addWidget(save_button)
         
         cancel_button = QPushButton("Cancel")
+        cancel_button.setObjectName("secondary")
         cancel_button.clicked.connect(self.reject)
         button_layout.addWidget(cancel_button)
         
-        layout.addRow("", button_layout)
+        main_layout.addWidget(button_frame)
         
-        self.setLayout(layout)
+        self.setLayout(main_layout)
+    
+    def _create_label(self, text):
+        """Create a styled label for form fields"""
+        label = QLabel(text)
+        label.setStyleSheet("""
+            QLabel {
+                color: #D4D4D4;
+                font-weight: bold;
+                font-size: 11px;
+            }
+        """)
+        return label
         
     def get_rule(self):
         """Get the rule data from the form"""
@@ -123,7 +200,7 @@ class RuleDialog(QDialog):
         return rule
 
 class RulesEditorWidget(QWidget):
-    """Widget for editing firewall rules"""
+    """Widget for editing firewall rules - unified styling"""
     rule_changed = pyqtSignal()
     
     def __init__(self, rule_manager=None, parent=None):
@@ -137,50 +214,152 @@ class RulesEditorWidget(QWidget):
         
     def _init_ui(self):
         layout = QVBoxLayout()
+        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(20)
         
-        # Table for displaying rules
-        self.rules_table = QTableWidget(0, 8)  # Rows will be added later
-        self.rules_table.setHorizontalHeaderLabels([
-            "Name", "Source IP", "Destination IP", "Protocol", 
-            "Ports", "Action", "Profile", "Enabled"
-        ])
+        # Header section
+        header_frame = QFrame()
+        header_frame.setStyleSheet("QFrame { border: none; background-color: transparent; }")
+        header_layout = QVBoxLayout(header_frame)
+        header_layout.setContentsMargins(0, 0, 0, 0)
         
-        # Set column stretch
-        header = self.rules_table.horizontalHeader()
-        for i in range(8):
-            header.setSectionResizeMode(i, QHeaderView.Stretch)
+        title = QLabel("Firewall Rules")
+        title.setObjectName("title")
+        title.setStyleSheet("font-size: 18px; font-weight: bold; color: #007ACC;")
+        header_layout.addWidget(title)
         
-        layout.addWidget(self.rules_table)
+        subtitle = QLabel("Manage firewall rules and access control policies")
+        subtitle.setObjectName("info")
+        subtitle.setStyleSheet("color: #A0A0A0; font-size: 11px; margin-bottom: 10px;")
+        header_layout.addWidget(subtitle)
         
-        # Buttons layout
-        button_layout = QHBoxLayout()
+        layout.addWidget(header_frame)
+        
+        # Controls section
+        controls_frame = QFrame()
+        controls_frame.setStyleSheet("""
+            QFrame {
+                background-color: #252526;
+                border: 1px solid #454545;
+                border-radius: 8px;
+                padding: 15px;
+            }
+        """)
+        controls_layout = QHBoxLayout(controls_frame)
         
         # Add rule button
         self.add_button = QPushButton("Add Rule")
+        self.add_button.setObjectName("success")
         self.add_button.clicked.connect(self._add_rule)
-        button_layout.addWidget(self.add_button)
+        controls_layout.addWidget(self.add_button)
         
         # Edit rule button
         self.edit_button = QPushButton("Edit Rule")
+        self.edit_button.setObjectName("secondary")
         self.edit_button.clicked.connect(self._edit_rule)
-        button_layout.addWidget(self.edit_button)
+        controls_layout.addWidget(self.edit_button)
         
         # Delete rule button
         self.delete_button = QPushButton("Delete Rule")
+        self.delete_button.setStyleSheet("""
+            QPushButton {
+                background-color: #F14C4C;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 8px 16px;
+                font-weight: bold;
+                font-size: 11px;
+            }
+            QPushButton:hover {
+                background-color: #E53E3E;
+            }
+        """)
         self.delete_button.clicked.connect(self._delete_rule)
-        button_layout.addWidget(self.delete_button)
+        controls_layout.addWidget(self.delete_button)
+        
+        # Spacer
+        controls_layout.addStretch()
         
         # Rule profiles selector
-        self.profile_label = QLabel("Profile:")
-        button_layout.addWidget(self.profile_label)
+        profile_label = QLabel("Filter by Profile:")
+        profile_label.setStyleSheet("color: #D4D4D4; font-weight: bold;")
+        controls_layout.addWidget(profile_label)
         
         self.profile_combo = QComboBox()
         self.profile_combo.addItem("All Profiles")
         self.profile_combo.addItem("default")
         self.profile_combo.currentTextChanged.connect(self._filter_rules)
-        button_layout.addWidget(self.profile_combo)
+        controls_layout.addWidget(self.profile_combo)
         
-        layout.addLayout(button_layout)
+        layout.addWidget(controls_frame)
+        
+        # Table for displaying rules
+        table_container = QFrame()
+        table_container.setStyleSheet("""
+            QFrame {
+                background-color: #252526;
+                border: 1px solid #454545;
+                border-radius: 8px;
+                padding: 10px;
+            }
+        """)
+        table_layout = QVBoxLayout(table_container)
+        table_layout.setContentsMargins(0, 0, 0, 0)
+        
+        self.rules_table = QTableWidget(0, 8)
+        self.rules_table.setHorizontalHeaderLabels([
+            "Name", "Source IP", "Destination IP", "Protocol", 
+            "Ports", "Action", "Profile", "Enabled"
+        ])
+        
+        # Enhanced table styling
+        self.rules_table.setStyleSheet("""
+            QTableWidget {
+                gridline-color: #454545;
+                background-color: #1E1E1E;
+                color: #D4D4D4;
+                selection-background-color: #007ACC;
+                selection-color: white;
+                border: none;
+                border-radius: 5px;
+                alternate-background-color: #252526;
+                font-size: 10px;
+            }
+            QTableWidget::item {
+                padding: 8px;
+                border-bottom: 1px solid #454545;
+            }
+            QTableWidget::item:selected {
+                background-color: #007ACC;
+                color: white;
+            }
+            QHeaderView::section {
+                background-color: #333333;
+                color: #D4D4D4;
+                padding: 10px;
+                border: 1px solid #454545;
+                font-weight: bold;
+                font-size: 11px;
+            }
+        """)
+        
+        # Set column stretch
+        header = self.rules_table.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.Stretch)  # Name
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)  # Source IP
+        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)  # Dest IP
+        header.setSectionResizeMode(3, QHeaderView.ResizeToContents)  # Protocol
+        header.setSectionResizeMode(4, QHeaderView.Stretch)  # Ports
+        header.setSectionResizeMode(5, QHeaderView.ResizeToContents)  # Action
+        header.setSectionResizeMode(6, QHeaderView.ResizeToContents)  # Profile
+        header.setSectionResizeMode(7, QHeaderView.ResizeToContents)  # Enabled
+        
+        # Enable alternating row colors
+        self.rules_table.setAlternatingRowColors(True)
+        
+        table_layout.addWidget(self.rules_table)
+        layout.addWidget(table_container)
         
         self.setLayout(layout)
     
@@ -203,7 +382,7 @@ class RulesEditorWidget(QWidget):
         if not self.rule_manager:
             return
             
-        # Get all unique profiles - extract directly from rules to avoid recursion
+        # Get all unique profiles
         profiles = set()
         for rule in self.rule_manager.rules:
             if 'profile' in rule:
@@ -239,8 +418,11 @@ class RulesEditorWidget(QWidget):
         for row, rule in enumerate(rules):
             self.rules_table.insertRow(row)
             
-            # Add rule data to table cells
-            self.rules_table.setItem(row, 0, QTableWidgetItem(rule.get('name', 'Unnamed')))
+            # Add rule data to table cells with enhanced styling
+            name_item = QTableWidgetItem(rule.get('name', 'Unnamed'))
+            name_item.setFont(QFont("Segoe UI", 10, QFont.Bold))
+            self.rules_table.setItem(row, 0, name_item)
+            
             self.rules_table.setItem(row, 1, QTableWidgetItem(rule.get('src_ip', '*')))
             self.rules_table.setItem(row, 2, QTableWidgetItem(rule.get('dst_ip', '*')))
             self.rules_table.setItem(row, 3, QTableWidgetItem(rule.get('protocol', 'ANY')))
@@ -255,8 +437,12 @@ class RulesEditorWidget(QWidget):
                 ports += f"Dst: {rule['dst_port']}"
             self.rules_table.setItem(row, 4, QTableWidgetItem(ports or '*'))
             
-            # Action and profile
-            self.rules_table.setItem(row, 5, QTableWidgetItem(rule.get('action', 'ALLOW')))
+            # Action with color coding
+            action_item = QTableWidgetItem(rule.get('action', 'ALLOW'))
+            if rule.get('action') == 'BLOCK':
+                action_item.setFont(QFont("Segoe UI", 10, QFont.Bold))
+            self.rules_table.setItem(row, 5, action_item)
+            
             self.rules_table.setItem(row, 6, QTableWidgetItem(rule.get('profile', 'default')))
             
             # Enabled status
@@ -271,7 +457,6 @@ class RulesEditorWidget(QWidget):
     
     def _filter_rules(self):
         """Filter rules based on selected profile"""
-        # Fixed version that doesn't cause recursion
         if not self.rule_manager:
             return
             
@@ -285,7 +470,7 @@ class RulesEditorWidget(QWidget):
         else:
             filtered_rules = rules
             
-        # Update the table directly without calling load_rules()
+        # Update the table directly
         self._populate_table(filtered_rules)
     
     def _get_selected_rule_id(self):
@@ -358,7 +543,7 @@ class RulesEditorWidget(QWidget):
             
         rule_id = self._get_selected_rule_id()
         if not rule_id:
-            QMessageBox.information(self, "Select Rule", "Please select a rule to edit")
+            QMessageBox.information(self, "Select Rule", "Please select a rule to delete")
             return
             
         # Confirm deletion

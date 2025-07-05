@@ -9,4 +9,4 @@ export XAUTH_VAL="$XAUTHORITY"
 export DBUS_VAL="$DBUS_SESSION_BUS_ADDRESS"
 
 # Use pkexec with properly quoted environment variables
-pkexec env DISPLAY="$DISPLAY_VAL" XAUTHORITY="$XAUTH_VAL" DBUS_SESSION_BUS_ADDRESS="$DBUS_VAL" python3 /home/jaideep/Study_Material/Projects/Antivirus/fw/FirewallGUI/src/main.py
+pkexec env DISPLAY="$DISPLAY_VAL" XAUTHORITY="$XAUTH_VAL" DBUS_SESSION_BUS_ADDRESS="$DBUS_VAL" python3 /home/jaideep/Study_Material/Projects/secure_shield/firewall/src/main.py

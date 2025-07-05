@@ -1,5 +1,5 @@
 # Python
-__pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 *.so
@@ -62,8 +62,8 @@ git
 *.cover
 .hypothesis/
 
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-antivirus/secureshield.db
+# Database files (ignore everywhere)
+**/*.db
+**/*.sqlite
+**/*.sqlite3
+**/*.json

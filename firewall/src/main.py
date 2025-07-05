@@ -101,7 +101,7 @@ def load_style_sheet():
 
 def main():
     # Parse command line arguments
-    parser = argparse.ArgumentParser(description='Python Firewall')
+    parser = argparse.ArgumentParser(description='SecureShield Firewall')
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--start', action='store_true', help='Start the firewall')
     group.add_argument('--stop', action='store_true', help='Stop the firewall')
@@ -133,10 +133,13 @@ def main():
     
     # Launch GUI
     app = QApplication(sys.argv)
-    app.setApplicationName("Python Firewall")
+    app.setApplicationName("SecureShield Firewall")
+    app.setApplicationVersion("1.0.0")
     
-    # Load and apply stylesheet
-    app.setStyleSheet(load_style_sheet())
+    # Load and apply unified stylesheet
+    stylesheet = load_style_sheet()
+    if stylesheet:
+        app.setStyleSheet(stylesheet)
     
     # Create and show the main window
     main_window = MainWindow(
@@ -146,23 +149,29 @@ def main():
     )
     main_window.show()
     
-    # Set up a hook to handle blocked connections with notifications
-
+    # Set up connection blocking notifications
     def on_connection_blocked(packet_info):
         src_ip = packet_info.get('src_ip', 'unknown')
         dst_ip = packet_info.get('dst_ip', 'unknown')
         dst_port = packet_info.get('dst_port', 'unknown')
         protocol = packet_info.get('protocol_name', 'unknown')
+        
+        # Show desktop notification
         components['notifier'].notify_blocked_connection(src_ip, dst_ip, dst_port, protocol)
+        
+        # Show in-app alert
         main_window.blocked_connection_signal.emit(packet_info)
-    # Remove the reference to refresh_logs
-    # main_window.log_viewer.refresh_logs()  # This line is causing the error
-    # Hook this up to the logger (this would need to be implemented in the logger)
+    
+    # Hook up the callback if logger supports it
     if hasattr(components['logger'], 'set_block_callback'):
         components['logger'].set_block_callback(on_connection_blocked)
     
     # Start the application event loop
-    sys.exit(app.exec_())
+    try:
+        sys.exit(app.exec_())
+    except KeyboardInterrupt:
+        print("\nApplication interrupted by user")
+        sys.exit(0)
 
 if __name__ == "__main__":
     main()
