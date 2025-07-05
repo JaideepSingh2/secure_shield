@@ -8,7 +8,6 @@ from PyQt5.QtGui import QIcon, QPixmap, QFont
 
 from gui.rules_editor import RulesEditorWidget
 from gui.log_viewer import LogViewerWidget
-from gui.alerts_popup import AlertPopup
 from utils.permissions import PermissionChecker
 from utils.network_utils import NetworkUtils
 
@@ -231,7 +230,6 @@ class MainWindow(QMainWindow):
         self.rule_manager = rule_manager
         self.logger = logger
         self.networks_utils = NetworkUtils()
-        self.alert_popup = None
         self.blocked_connection_signal.connect(self._show_blocked_alert)
         
         self._initUI()
@@ -269,10 +267,12 @@ class MainWindow(QMainWindow):
         
         main_title = QLabel("Firewall Management")
         main_title.setObjectName("title")
+        main_title.setStyleSheet("font-size: 18px; font-weight: bold; color: #007ACC;")
         header_layout.addWidget(main_title)
         
         main_subtitle = QLabel("Configure rules and monitor network activity")
         main_subtitle.setObjectName("info")
+        main_subtitle.setStyleSheet("color: #A0A0A0; font-size: 11px; margin-bottom: 10px;")
         header_layout.addWidget(main_subtitle)
         
         content_layout.addWidget(header_frame)
@@ -308,569 +308,157 @@ class MainWindow(QMainWindow):
         
         # Create menu bar
         self._setup_menu()
-    
-    # ...existing code...
+
+    def _show_blocked_alert(self, packet_info):
+        """Handle blocked connection signal - removed annoying popup"""
+        pass
 
     def _setup_menu(self):
-        """Set up the application menu bar with unified styling"""
+        """Set up the application menu bar"""
         menubar = self.menuBar()
         
         # File menu
         file_menu = menubar.addMenu('&File')
         
-        # Import rules action
-        import_action = QAction('&Import Rules...', self)
-        import_action.setShortcut('Ctrl+I')
-        import_action.setStatusTip('Import firewall rules from file')
-        import_action.triggered.connect(self._import_rules)
-        file_menu.addAction(import_action)
-        
-        # Export rules action
-        export_action = QAction('&Export Rules...', self)
-        export_action.setShortcut('Ctrl+E')
-        export_action.setStatusTip('Export firewall rules to file')
-        export_action.triggered.connect(self._export_rules)
-        file_menu.addAction(export_action)
-        
-        file_menu.addSeparator()
-        
         # Exit action
         exit_action = QAction('E&xit', self)
         exit_action.setShortcut('Ctrl+Q')
-        exit_action.setStatusTip('Exit application')
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
         
         # Firewall menu
-        firewall_menu = menubar.addMenu('&Firewall')
+        fw_menu = menubar.addMenu('&Firewall')
         
-        # Start firewall action
-        self.start_action = QAction('&Start Firewall', self)
-        self.start_action.setShortcut('Ctrl+S')
-        self.start_action.setStatusTip('Start the firewall protection')
-        self.start_action.triggered.connect(self._start_firewall)
-        firewall_menu.addAction(self.start_action)
+        # Start action
+        start_action = QAction('&Start', self)
+        start_action.triggered.connect(lambda: self._toggle_firewall_controller(True))
+        fw_menu.addAction(start_action)
         
-        # Stop firewall action
-        self.stop_action = QAction('St&op Firewall', self)
-        self.stop_action.setShortcut('Ctrl+O')
-        self.stop_action.setStatusTip('Stop the firewall protection')
-        self.stop_action.triggered.connect(self._stop_firewall)
-        self.stop_action.setEnabled(False)
-        firewall_menu.addAction(self.stop_action)
+        # Stop action
+        stop_action = QAction('St&op', self)
+        stop_action.triggered.connect(lambda: self._toggle_firewall_controller(False))
+        fw_menu.addAction(stop_action)
         
-        firewall_menu.addSeparator()
+        fw_menu.addSeparator()
         
-        # Reset rules action
-        reset_action = QAction('&Reset Rules', self)
-        reset_action.setStatusTip('Reset firewall rules to default')
-        reset_action.triggered.connect(self._reset_rules)
-        firewall_menu.addAction(reset_action)
+        # Reload rules action
+        reload_action = QAction('&Reload Rules', self)
+        reload_action.triggered.connect(self._reload_rules)
+        fw_menu.addAction(reload_action)
         
-        # View menu
-        view_menu = menubar.addMenu('&View')
-        
-        # Refresh logs action
-        refresh_action = QAction('&Refresh Logs', self)
-        refresh_action.setShortcut('F5')
-        refresh_action.setStatusTip('Refresh activity logs')
-        refresh_action.triggered.connect(self._refresh_logs)
-        view_menu.addAction(refresh_action)
-        
-        # Clear logs action
-        clear_logs_action = QAction('&Clear Logs', self)
-        clear_logs_action.setStatusTip('Clear all activity logs')
-        clear_logs_action.triggered.connect(self._clear_logs)
-        view_menu.addAction(clear_logs_action)
-        
-        # Help menu
-        help_menu = menubar.addMenu('&Help')
-        
-        # About action
-        about_action = QAction('&About', self)
-        about_action.setStatusTip('Show information about SecureShield Firewall')
-        about_action.triggered.connect(self._show_about)
-        help_menu.addAction(about_action)
-        
-        # Help action
-        help_action = QAction('&Help', self)
-        help_action.setShortcut('F1')
-        help_action.setStatusTip('Show help documentation')
-        help_action.triggered.connect(self._show_help)
-        help_menu.addAction(help_action)
-
-    def _setup_timers(self):
-        """Set up timers for periodic updates"""
-        # Status update timer
-        self.status_timer = QTimer()
-        self.status_timer.timeout.connect(self._update_status)
-        self.status_timer.start(5000)  # Update every 5 seconds
-        
-        # Network info update timer
-        self.network_timer = QTimer()
-        self.network_timer.timeout.connect(self.update_network_info)
-        self.network_timer.start(10000)  # Update every 10 seconds
-
     def _check_permissions(self):
-        """Check and display permission warnings"""
+        """Check if app has admin/root permissions"""
         if not PermissionChecker.is_admin():
-            self.statusBar().showMessage(
-                "Warning: Administrator privileges required for full functionality", 
-                10000
-            )
+            QMessageBox.warning(self, "Permission Warning", 
+                              "This application needs administrator/root privileges to function properly.")
+            
+    def _toggle_firewall_controller(self, enable):
+        """Start or stop the firewall controller"""
+        if self.firewall_controller:
+            if enable:
+                success = self.firewall_controller.start()
+                if success:
+                    self.status_widget.update_status(True)
+                    self.statusBar().showMessage("Firewall started", 3000)
+                else:
+                    QMessageBox.critical(self, "Error", "Failed to start firewall")
+            else:
+                success = self.firewall_controller.stop()
+                if success:
+                    self.status_widget.update_status(False)
+                    self.statusBar().showMessage("Firewall stopped", 3000)
+                else:
+                    QMessageBox.critical(self, "Error", "Failed to stop firewall")
+        else:
+            QMessageBox.warning(self, "Not Initialized", "Firewall controller not initialized")
+            
+    def _reload_rules(self):
+        """Reload the firewall rules"""
+        if self.rule_manager and self.firewall_controller:
+            # Reload rules from file
+            rules = self.rule_manager.load_rules()
+            
+            # Update rule engine with new rules
+            if hasattr(self.firewall_controller, 'rule_engine'):
+                self.firewall_controller.rule_engine.load_rules(rules)
+                
+                # Refresh the rules display
+                self.rules_editor.load_rules()
+                
+                self.statusBar().showMessage("Rules reloaded", 3000)
+            
+    def _setup_timers(self):
+        """Set up periodic timers for updates"""
+        # Timer for statistics update (every 5 seconds)
+        self.stats_timer = QTimer(self)
+        self.stats_timer.timeout.connect(self._update_statistics)
+        self.stats_timer.start(5000)  # 5 second refresh
 
-    def update_network_info(self):
-        """Update network information in the status bar"""
+        # Timer for network info update (every 30 seconds)
+        self.net_timer = QTimer(self)
+        self.net_timer.timeout.connect(self.update_network_info)
+        self.net_timer.start(30000)  # 30 seconds
+
+    def _update_statistics(self):
+        """Update various statistics displays"""
+        if not self.firewall_controller or not self.logger:
+            return
+            
+        # Get active connections count
         try:
-            info = self.networks_utils.get_network_interfaces()
-            active_interfaces = [iface for iface in info if iface.get('is_up', False)]
-            self.net_info_label.setText(f"Active Interfaces: {len(active_interfaces)}")
+            connections = self.networks_utils.get_active_connections()
+            active_conn_count = len(connections)
+        except:
+            active_conn_count = 0
+        
+        # Get processed and blocked packet counts
+        if hasattr(self.logger, 'get_counts'):
+            try:
+                counts = self.logger.get_counts()
+                processed = counts.get('processed', 0)
+                blocked = counts.get('blocked', 0)
+            except:
+                processed = 0
+                blocked = 0
+        else:
+            processed = 0
+            blocked = 0
+            
+        # Update the status widget
+        self.status_widget.update_stats(
+            active_connections=active_conn_count,
+            packets_processed=processed,
+            packets_blocked=blocked
+        )
+        
+    def update_network_info(self):
+        """Update the network information in status bar"""
+        try:
+            ip_addresses = self.networks_utils.get_ip_addresses()
+            main_ip = ip_addresses.get('eth0', list(ip_addresses.values())[0] if ip_addresses else 'Unknown')
+            self.net_info_label.setText(f"Network Info: Unavailable")
         except Exception as e:
             self.net_info_label.setText("Network Info: Unavailable")
-
-    def _toggle_firewall_controller(self, enabled):
-        """Handle firewall toggle from status widget"""
-        if enabled:
-            self._start_firewall()
-        else:
-            self._stop_firewall()
-
-    def _start_firewall(self):
-        """Start the firewall"""
-        if not self.firewall_controller:
-            QMessageBox.warning(self, "Error", "Firewall controller not initialized")
-            return
-            
-        try:
-            success = self.firewall_controller.start()
-            if success:
-                self.status_widget.update_status(True)
-                self.start_action.setEnabled(False)
-                self.stop_action.setEnabled(True)
-                self.statusBar().showMessage("Firewall started successfully", 3000)
-                
-                # Initialize alert_popup if not already done
-                if not self.alert_popup:
-                    self.alert_popup = AlertPopup(self)
-                
-                # Show system notification if available
-                if hasattr(self.alert_popup, 'show_system_event'):
-                    self.alert_popup.show_system_event(
-                        "Firewall Started", 
-                        "SecureShield Firewall protection is now active"
-                    )
-            else:
-                QMessageBox.warning(self, "Error", "Failed to start firewall")
-                self.status_widget.update_status(False)
-        except Exception as e:
-            QMessageBox.critical(self, "Error", f"Failed to start firewall: {str(e)}")
-            self.status_widget.update_status(False)
-
-    def _stop_firewall(self):
-        """Stop the firewall"""
-        if not self.firewall_controller:
-            QMessageBox.warning(self, "Error", "Firewall controller not initialized")
-            return
-            
-        try:
-            success = self.firewall_controller.stop()
-            if success:
-                self.status_widget.update_status(False)
-                self.start_action.setEnabled(True)
-                self.stop_action.setEnabled(False)
-                self.statusBar().showMessage("Firewall stopped", 3000)
-                
-                # Initialize alert_popup if not already done
-                if not self.alert_popup:
-                    self.alert_popup = AlertPopup(self)
-                
-                # Show system notification if available
-                if hasattr(self.alert_popup, 'show_system_event'):
-                    self.alert_popup.show_system_event(
-                        "Firewall Stopped", 
-                        "SecureShield Firewall protection has been disabled"
-                    )
-            else:
-                QMessageBox.warning(self, "Error", "Failed to stop firewall")
-        except Exception as e:
-            QMessageBox.critical(self, "Error", f"Failed to stop firewall: {str(e)}")
-
-
-    def _update_status(self):
-        """Update the firewall status and statistics"""
-        if not self.firewall_controller:
-            return
-            
-        try:
-            status = self.firewall_controller.status()
-            
-            # Update status widget
-            is_running = status.get('running', False)
-            self.status_widget.update_status(is_running)
-            
-            # Update statistics
-            stats = status.get('statistics', {})
-            self.status_widget.update_stats(
-                active_connections=stats.get('active_connections', 0),
-                packets_processed=stats.get('packets_processed', 0),
-                packets_blocked=stats.get('packets_blocked', 0)
-            )
-            
-            # Update menu actions
-            self.start_action.setEnabled(not is_running)
-            self.stop_action.setEnabled(is_running)
-            
-        except Exception as e:
-            print(f"Error updating status: {e}")
-
-    def _show_blocked_alert(self, packet_info):
-        """Show an alert for blocked connections"""
-        if not self.alert_popup:
-            self.alert_popup = AlertPopup(self)
-        
-        src_ip = packet_info.get('src_ip', 'unknown')
-        dst_ip = packet_info.get('dst_ip', 'unknown') 
-        dst_port = packet_info.get('dst_port', 'unknown')
-        protocol = packet_info.get('protocol_name', 'unknown')
-        
-        self.alert_popup.show_blocked_connection(src_ip, dst_ip, dst_port, protocol)
-
-    def _import_rules(self):
-        """Import firewall rules from a file"""
-        try:
-            from PyQt5.QtWidgets import QFileDialog
-            filename, _ = QFileDialog.getOpenFileName(
-                self, 
-                "Import Rules", 
-                "", 
-                "JSON Files (*.json);;All Files (*)"
-            )
-            
-            if filename and self.rule_manager:
-                # Import rules logic would go here
-                success = self.rule_manager.import_rules(filename)
-                if success:
-                    self.rules_editor.load_rules()
-                    QMessageBox.information(self, "Success", "Rules imported successfully")
-                    self.statusBar().showMessage("Rules imported", 3000)
-                else:
-                    QMessageBox.warning(self, "Error", "Failed to import rules")
-        except Exception as e:
-            QMessageBox.critical(self, "Error", f"Import failed: {str(e)}")
-
-    def _export_rules(self):
-        """Export firewall rules to a file"""
-        try:
-            from PyQt5.QtWidgets import QFileDialog
-            filename, _ = QFileDialog.getSaveFileName(
-                self, 
-                "Export Rules", 
-                "firewall_rules.json", 
-                "JSON Files (*.json);;All Files (*)"
-            )
-            
-            if filename and self.rule_manager:
-                # Export rules logic would go here
-                success = self.rule_manager.export_rules(filename)
-                if success:
-                    QMessageBox.information(self, "Success", f"Rules exported to {filename}")
-                    self.statusBar().showMessage("Rules exported", 3000)
-                else:
-                    QMessageBox.warning(self, "Error", "Failed to export rules")
-        except Exception as e:
-            QMessageBox.critical(self, "Error", f"Export failed: {str(e)}")
-
-    def _reset_rules(self):
-        """Reset firewall rules to default"""
-        reply = QMessageBox.question(
-            self, 
-            "Confirm Reset", 
-            "Are you sure you want to reset all rules to default?\nThis action cannot be undone.",
-            QMessageBox.Yes | QMessageBox.No
-        )
-        
-        if reply == QMessageBox.Yes and self.rule_manager:
-            try:
-                self.rule_manager.reset_to_default()
-                self.rules_editor.load_rules()
-                QMessageBox.information(self, "Success", "Rules reset to default")
-                self.statusBar().showMessage("Rules reset", 3000)
-            except Exception as e:
-                QMessageBox.critical(self, "Error", f"Reset failed: {str(e)}")
-
-    def _refresh_logs(self):
-        """Refresh the activity logs"""
-        try:
-            if hasattr(self.log_viewer, '_apply_filters'):
-                self.log_viewer._apply_filters()
-                self.statusBar().showMessage("Logs refreshed", 2000)
-        except Exception as e:
-            QMessageBox.warning(self, "Error", f"Failed to refresh logs: {str(e)}")
-
-    def _clear_logs(self):
-        """Clear all activity logs"""
-        reply = QMessageBox.question(
-            self, 
-            "Confirm Clear", 
-            "Are you sure you want to clear all activity logs?\nThis action cannot be undone.",
-            QMessageBox.Yes | QMessageBox.No
-        )
-        
-        if reply == QMessageBox.Yes:
-            try:
-                if hasattr(self.log_viewer, '_clear_display'):
-                    self.log_viewer._clear_display()
-                if self.logger:
-                    # Clear logs in logger if method exists
-                    if hasattr(self.logger, 'clear_logs'):
-                        self.logger.clear_logs()
-                
-                QMessageBox.information(self, "Success", "Logs cleared successfully")
-                self.statusBar().showMessage("Logs cleared", 3000)
-            except Exception as e:
-                QMessageBox.critical(self, "Error", f"Failed to clear logs: {str(e)}")
-
-    def _show_about(self):
-        """Show about dialog with unified styling"""
-        about_dialog = QDialog(self)
-        about_dialog.setWindowTitle("About SecureShield Firewall")
-        about_dialog.setFixedSize(450, 350)
-        about_dialog.setStyleSheet("""
-            QDialog {
-                background-color: #1E1E1E;
-                color: #D4D4D4;
-            }
-        """)
-        
-        layout = QVBoxLayout()
-        layout.setContentsMargins(30, 30, 30, 30)
-        layout.setSpacing(20)
-        
-        # Logo/Title
-        title_label = QLabel("SecureShield Firewall")
-        title_label.setStyleSheet("""
-            QLabel {
-                font-size: 24px;
-                font-weight: bold;
-                color: #007ACC;
-                background-color: transparent;
-            }
-        """)
-        title_label.setAlignment(Qt.AlignCenter)
-        layout.addWidget(title_label)
-        
-        # Version
-        version_label = QLabel("Version 1.0.0")
-        version_label.setStyleSheet("""
-            QLabel {
-                font-size: 14px;
-                color: #D4D4D4;
-                background-color: transparent;
-            }
-        """)
-        version_label.setAlignment(Qt.AlignCenter)
-        layout.addWidget(version_label)
-        
-        # Description
-        desc_label = QLabel(
-            "A comprehensive network security solution providing "
-            "advanced firewall protection with real-time monitoring "
-            "and intelligent threat detection."
-        )
-        desc_label.setStyleSheet("""
-            QLabel {
-                font-size: 11px;
-                color: #A0A0A0;
-                background-color: transparent;
-                padding: 15px;
-            }
-        """)
-        desc_label.setWordWrap(True)
-        desc_label.setAlignment(Qt.AlignCenter)
-        layout.addWidget(desc_label)
-        
-        # Copyright
-        copyright_label = QLabel("© 2024 SecureShield. All rights reserved.")
-        copyright_label.setStyleSheet("""
-            QLabel {
-                font-size: 10px;
-                color: #A0A0A0;
-                background-color: transparent;
-            }
-        """)
-        copyright_label.setAlignment(Qt.AlignCenter)
-        layout.addWidget(copyright_label)
-        
-        # Close button
-        close_btn = QPushButton("Close")
-        close_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #007ACC;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                padding: 10px 30px;
-                font-weight: bold;
-                font-size: 11px;
-            }
-            QPushButton:hover {
-                background-color: #1F8AD2;
-            }
-        """)
-        close_btn.clicked.connect(about_dialog.accept)
-        
-        button_layout = QHBoxLayout()
-        button_layout.addStretch()
-        button_layout.addWidget(close_btn)
-        button_layout.addStretch()
-        layout.addLayout(button_layout)
-        
-        about_dialog.setLayout(layout)
-        about_dialog.exec_()
-
-    def _show_help(self):
-        """Show help dialog with unified styling"""
-        help_dialog = QDialog(self)
-        help_dialog.setWindowTitle("SecureShield Firewall Help")
-        help_dialog.setFixedSize(600, 500)
-        help_dialog.setStyleSheet("""
-            QDialog {
-                background-color: #1E1E1E;
-                color: #D4D4D4;
-            }
-        """)
-        
-        layout = QVBoxLayout()
-        layout.setContentsMargins(20, 20, 20, 20)
-        layout.setSpacing(15)
-        
-        # Title
-        title_label = QLabel("Help & Documentation")
-        title_label.setStyleSheet("""
-            QLabel {
-                font-size: 18px;
-                font-weight: bold;
-                color: #007ACC;
-                background-color: transparent;
-                margin-bottom: 15px;
-            }
-        """)
-        layout.addWidget(title_label)
-        
-        # Help content
-        help_text = """
-<div style="color: #D4D4D4; font-size: 11px; line-height: 1.4;">
-<h3 style="color: #007ACC;">Getting Started</h3>
-<p>1. <strong>Enable Firewall:</strong> Click the "Enable Firewall" button in the status panel</p>
-<p>2. <strong>Configure Rules:</strong> Use the Firewall Rules tab to add custom rules</p>
-<p>3. <strong>Monitor Activity:</strong> Check the Activity Logs tab for real-time monitoring</p>
-
-<h3 style="color: #007ACC;">Firewall Rules</h3>
-<p>• <strong>Add Rule:</strong> Click "Add Rule" to create new filtering rules</p>
-<p>• <strong>Edit Rule:</strong> Select a rule and click "Edit Rule" to modify</p>
-<p>• <strong>Delete Rule:</strong> Select a rule and click "Delete Rule" to remove</p>
-
-<h3 style="color: #007ACC;">Activity Monitoring</h3>
-<p>• <strong>Connection Logs:</strong> View all network connections and their status</p>
-<p>• <strong>System Events:</strong> Monitor firewall system events and alerts</p>
-<p>• <strong>Filters:</strong> Use filters to find specific activities or time periods</p>
-
-<h3 style="color: #007ACC;">Keyboard Shortcuts</h3>
-<p>• <strong>Ctrl+S:</strong> Start Firewall</p>
-<p>• <strong>Ctrl+O:</strong> Stop Firewall</p>
-<p>• <strong>F5:</strong> Refresh Logs</p>
-<p>• <strong>F1:</strong> Show Help</p>
-<p>• <strong>Ctrl+Q:</strong> Exit Application</p>
-</div>
-        """
-        
-        help_content = QLabel(help_text)
-        help_content.setStyleSheet("""
-            QLabel {
-                background-color: #252526;
-                border: 1px solid #454545;
-                border-radius: 8px;
-                padding: 20px;
-            }
-        """)
-        help_content.setWordWrap(True)
-        help_content.setTextFormat(Qt.RichText)
-        layout.addWidget(help_content)
-        
-        # Close button
-        close_btn = QPushButton("Close")
-        close_btn.setStyleSheet("""
-            QPushButton {
-                background-color: #007ACC;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                padding: 10px 30px;
-                font-weight: bold;
-                font-size: 11px;
-            }
-            QPushButton:hover {
-                background-color: #1F8AD2;
-            }
-        """)
-        close_btn.clicked.connect(help_dialog.accept)
-        
-        button_layout = QHBoxLayout()
-        button_layout.addStretch()
-        button_layout.addWidget(close_btn)
-        layout.addLayout(button_layout)
-        
-        help_dialog.setLayout(layout)
-        help_dialog.exec_()
-
+    
     def closeEvent(self, event):
-        """Handle application close event"""
-        # Stop firewall if running
-        if self.firewall_controller and hasattr(self.firewall_controller, 'is_running'):
-            # Check if is_running is a property or method
+        """Handle window close event"""
+        if self.firewall_controller:
+            # Check if firewall is running
             try:
-                # Try as property first
-                if callable(getattr(self.firewall_controller, 'is_running')):
-                    is_running = self.firewall_controller.is_running()
-                else:
-                    is_running = self.firewall_controller.is_running
-            except (AttributeError, TypeError):
-                # Fallback to checking status
-                try:
-                    status = self.firewall_controller.status()
-                    is_running = status.get('running', False)
-                except:
-                    is_running = False
-            
-            if is_running:
-                reply = QMessageBox.question(
-                    self, 
-                    "Firewall Running", 
-                    "The firewall is currently running. Do you want to stop it before exiting?",
-                    QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel
-                )
+                status = self.firewall_controller.status()
+                is_running = status.get('running', False)
                 
-                if reply == QMessageBox.Cancel:
-                    event.ignore()
-                    return
-                elif reply == QMessageBox.Yes:
-                    try:
+                if is_running:
+                    reply = QMessageBox.question(self, 'Confirm Exit',
+                        'The firewall is still running. Do you want to stop it before exiting?',
+                        QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel)
+                        
+                    if reply == QMessageBox.Cancel:
+                        event.ignore()
+                        return
+                    elif reply == QMessageBox.Yes:
                         self.firewall_controller.stop()
-                    except Exception as e:
-                        print(f"Error stopping firewall: {e}")
-        
-        # Clean up resources
-        if hasattr(self, 'status_timer'):
-            self.status_timer.stop()
-        if hasattr(self, 'network_timer'):
-            self.network_timer.stop()
-        
-        # Clean up log viewer
-        if hasattr(self.log_viewer, 'closeEvent'):
-            self.log_viewer.closeEvent(event)
-        
+            except:
+                pass
+                
         event.accept()
-        
-    def sizeHint(self):
-        """Return preferred size for the main window"""
-        return QSize(1200, 800)

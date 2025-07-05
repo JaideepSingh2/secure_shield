@@ -149,7 +149,7 @@ def main():
     )
     main_window.show()
     
-    # Set up connection blocking notifications
+    # Set up connection blocking notifications (desktop notifications only)
     def on_connection_blocked(packet_info):
         src_ip = packet_info.get('src_ip', 'unknown')
         dst_ip = packet_info.get('dst_ip', 'unknown')
@@ -159,7 +159,7 @@ def main():
         # Show desktop notification
         components['notifier'].notify_blocked_connection(src_ip, dst_ip, dst_port, protocol)
         
-        # Show in-app alert
+        # Emit signal for log updates (no popup)
         main_window.blocked_connection_signal.emit(packet_info)
     
     # Hook up the callback if logger supports it

@@ -67,3 +67,4 @@ git
 **/*.sqlite
 **/*.sqlite3
 **/*.json
+**/*.pyc

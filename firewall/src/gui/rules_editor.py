@@ -99,11 +99,6 @@ class RuleDialog(QDialog):
                 self.action_combo.setCurrentIndex(index)
         form_layout.addRow(self._create_label("Action:"), self.action_combo)
         
-        # Profile
-        self.profile_edit = QLineEdit(self.rule.get('profile', 'default'))
-        self.profile_edit.setPlaceholderText("Rule profile/category")
-        form_layout.addRow(self._create_label("Profile:"), self.profile_edit)
-        
         # Priority
         self.priority_spin = QSpinBox()
         self.priority_spin.setRange(1, 100)
@@ -174,7 +169,6 @@ class RuleDialog(QDialog):
             'name': self.name_edit.text(),
             'protocol': self.protocol_combo.currentText(),
             'action': self.action_combo.currentText(),
-            'profile': self.profile_edit.text(),
             'priority': self.priority_spin.value(),
             'enabled': self.enabled_checkbox.isChecked(),
             'description': self.description_edit.text()
@@ -281,17 +275,6 @@ class RulesEditorWidget(QWidget):
         # Spacer
         controls_layout.addStretch()
         
-        # Rule profiles selector
-        profile_label = QLabel("Filter by Profile:")
-        profile_label.setStyleSheet("color: #D4D4D4; font-weight: bold;")
-        controls_layout.addWidget(profile_label)
-        
-        self.profile_combo = QComboBox()
-        self.profile_combo.addItem("All Profiles")
-        self.profile_combo.addItem("default")
-        self.profile_combo.currentTextChanged.connect(self._filter_rules)
-        controls_layout.addWidget(self.profile_combo)
-        
         layout.addWidget(controls_frame)
         
         # Table for displaying rules
@@ -307,10 +290,10 @@ class RulesEditorWidget(QWidget):
         table_layout = QVBoxLayout(table_container)
         table_layout.setContentsMargins(0, 0, 0, 0)
         
-        self.rules_table = QTableWidget(0, 8)
+        self.rules_table = QTableWidget(0, 7)  # Removed profile column
         self.rules_table.setHorizontalHeaderLabels([
             "Name", "Source IP", "Destination IP", "Protocol", 
-            "Ports", "Action", "Profile", "Enabled"
+            "Ports", "Action", "Enabled"
         ])
         
         # Enhanced table styling
@@ -352,8 +335,7 @@ class RulesEditorWidget(QWidget):
         header.setSectionResizeMode(3, QHeaderView.ResizeToContents)  # Protocol
         header.setSectionResizeMode(4, QHeaderView.Stretch)  # Ports
         header.setSectionResizeMode(5, QHeaderView.ResizeToContents)  # Action
-        header.setSectionResizeMode(6, QHeaderView.ResizeToContents)  # Profile
-        header.setSectionResizeMode(7, QHeaderView.ResizeToContents)  # Enabled
+        header.setSectionResizeMode(6, QHeaderView.ResizeToContents)  # Enabled
         
         # Enable alternating row colors
         self.rules_table.setAlternatingRowColors(True)
@@ -373,46 +355,10 @@ class RulesEditorWidget(QWidget):
         
         # Update the table
         self._populate_table(rules)
-        
-        # Update profiles in combo box
-        self._update_profiles()
-    
-    def _update_profiles(self):
-        """Update the list of available profiles"""
-        if not self.rule_manager:
-            return
-            
-        # Get all unique profiles
-        profiles = set()
-        for rule in self.rule_manager.rules:
-            if 'profile' in rule:
-                profiles.add(rule['profile'])
-        
-        # Always include 'default' profile
-        profiles.add('default')
-        profiles = sorted(list(profiles))
-        
-        # Save current selection
-        current = self.profile_combo.currentText()
-        
-        # Update combo box
-        self.profile_combo.clear()
-        self.profile_combo.addItem("All Profiles")
-        self.profile_combo.addItems(profiles)
-        
-        # Restore selection if possible
-        index = self.profile_combo.findText(current)
-        if index >= 0:
-            self.profile_combo.setCurrentIndex(index)
     
     def _populate_table(self, rules):
         """Populate the table with rules"""
         self.rules_table.setRowCount(0)  # Clear existing rows
-        
-        # Filter by selected profile if needed
-        selected_profile = self.profile_combo.currentText()
-        if selected_profile != "All Profiles":
-            rules = [rule for rule in rules if rule.get('profile') == selected_profile]
         
         # Add rules to table
         for row, rule in enumerate(rules):
@@ -443,35 +389,15 @@ class RulesEditorWidget(QWidget):
                 action_item.setFont(QFont("Segoe UI", 10, QFont.Bold))
             self.rules_table.setItem(row, 5, action_item)
             
-            self.rules_table.setItem(row, 6, QTableWidgetItem(rule.get('profile', 'default')))
-            
             # Enabled status
             enabled_item = QTableWidgetItem()
             enabled_item.setFlags(Qt.ItemIsUserCheckable | Qt.ItemIsEnabled)
             enabled_item.setCheckState(Qt.Checked if rule.get('enabled', True) else Qt.Unchecked)
-            self.rules_table.setItem(row, 7, enabled_item)
+            self.rules_table.setItem(row, 6, enabled_item)
             
             # Store the rule ID as item data
             if 'id' in rule:
                 self.rules_table.item(row, 0).setData(Qt.UserRole, rule['id'])
-    
-    def _filter_rules(self):
-        """Filter rules based on selected profile"""
-        if not self.rule_manager:
-            return
-            
-        # Get all rules
-        rules = self.rule_manager.rules
-        
-        # Filter by selected profile
-        selected_profile = self.profile_combo.currentText()
-        if selected_profile != "All Profiles":
-            filtered_rules = [rule for rule in rules if rule.get('profile') == selected_profile]
-        else:
-            filtered_rules = rules
-            
-        # Update the table directly
-        self._populate_table(filtered_rules)
     
     def _get_selected_rule_id(self):
         """Get the ID of the selected rule"""

@@ -519,6 +519,15 @@ class LayoutManager:
                           command=lambda: None)  # Already on home
         btn_home.pack(fill=tk.X, pady=5)
         
+        btn_firewall = tk.Button(nav_frame, text="Firewall", 
+                              font=("Segoe UI", 11), 
+                              bg=COLORS["bg_light"], fg=COLORS["text"],
+                              activebackground=COLORS["bg_medium"],
+                              activeforeground=COLORS["text"],
+                              borderwidth=0, padx=20, pady=10,
+                              command=self.scan_manager.open_firewall)
+        btn_firewall.pack(fill=tk.X, pady=5)
+        
         btn_password = tk.Button(nav_frame, text="Password Manager", 
                               font=("Segoe UI", 11), 
                               bg=COLORS["bg_light"], fg=COLORS["text"],
@@ -1139,17 +1148,49 @@ class ScanManager:
         window.grab_release()
         window.destroy()
     
+    def open_firewall(self):
+        """Open the firewall application"""
+        try:
+            # Use relative path from the current script location
+            firewall_script_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "firewall", "run_firewall.sh")
+            
+            if not os.path.exists(firewall_script_path):
+                messagebox.showerror("Error", f"Firewall script not found at {firewall_script_path}")
+                return
+            
+            # Make sure the script is executable
+            if not os.access(firewall_script_path, os.X_OK):
+                os.chmod(firewall_script_path, 0o755)
+            
+            # Check if the script has proper shebang
+            try:
+                with open(firewall_script_path, 'r') as f:
+                    first_line = f.readline().strip()
+                    if not first_line.startswith('#!'):
+                        messagebox.showerror("Error", "Firewall script is missing shebang line. Please check the script format.")
+                        return
+            except Exception as e:
+                messagebox.showerror("Error", f"Cannot read firewall script: {str(e)}")
+                return
+            
+            # Start the firewall in a separate process
+            subprocess.Popen([firewall_script_path], cwd=os.path.dirname(firewall_script_path))
+            
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to open firewall: {str(e)}")
+    
     def open_password_manager(self):
         """Open the password manager application"""
         try:
+            # Use relative path from the current script location
             password_manager_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "password_manager", "main.py")
             
             if not os.path.exists(password_manager_path):
                 messagebox.showerror("Error", f"Password manager not found at {password_manager_path}")
                 return
             
-            # Start the password manager in a separate process
-            subprocess.Popen(["python3", password_manager_path])
+            # Start the password manager in a separate process using relative path
+            subprocess.Popen(["python3", password_manager_path], cwd=os.path.dirname(password_manager_path))
             
         except Exception as e:
             messagebox.showerror("Error", f"Failed to open password manager: {str(e)}")
