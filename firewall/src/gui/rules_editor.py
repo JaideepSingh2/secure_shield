@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QTableWidget, QPushButton, 
                            QDialog, QFormLayout, QLineEdit, QComboBox, QTableWidgetItem,
-                           QHeaderView, QCheckBox, QLabel, QMessageBox, QSpinBox, QFrame)
+                           QHeaderView, QCheckBox, QLabel, QMessageBox, QSpinBox, QFrame,
+                           QTabWidget)
 from PyQt5.QtCore import Qt, pyqtSignal
 from PyQt5.QtGui import QFont
 
@@ -206,6 +207,8 @@ class RulesEditorWidget(QWidget):
         if rule_manager:
             self.load_rules()
         
+# ...existing code...
+
     def _init_ui(self):
         layout = QVBoxLayout()
         layout.setContentsMargins(20, 20, 20, 20)
@@ -277,26 +280,49 @@ class RulesEditorWidget(QWidget):
         
         layout.addWidget(controls_frame)
         
-        # Table for displaying rules
-        table_container = QFrame()
-        table_container.setStyleSheet("""
-            QFrame {
-                background-color: #252526;
+        # **REWRITTEN TABLE SECTION** - Matching Activity Logs styling exactly
+        # Create tab widget like Activity Logs (even though we only have one tab)
+        self.rules_tab_widget = QTabWidget()
+        self.rules_tab_widget.setStyleSheet("""
+            QTabWidget::pane {
                 border: 1px solid #454545;
+                background-color: #252526;
                 border-radius: 8px;
-                padding: 10px;
+            }
+            QTabBar::tab {
+                background-color: #333333;
+                color: #D4D4D4;
+                min-width: 150px;
+                padding: 12px 20px;
+                border: 1px solid #454545;
+                border-bottom: none;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                margin-right: 2px;
+                font-size: 11px;
+                font-weight: bold;
+            }
+            QTabBar::tab:selected {
+                background-color: #007ACC;
+                color: white;
+            }
+            QTabBar::tab:hover:!selected {
+                background-color: #252526;
             }
         """)
-        table_layout = QVBoxLayout(table_container)
-        table_layout.setContentsMargins(0, 0, 0, 0)
         
-        self.rules_table = QTableWidget(0, 7)  # Removed profile column
+        # Rules tab content
+        self.rules_tab = QWidget()
+        rules_tab_layout = QVBoxLayout()
+        rules_tab_layout.setContentsMargins(15, 15, 15, 15)
+        
+        # Create the rules table with EXACT same styling as Activity Logs
+        self.rules_table = QTableWidget(0, 7)
         self.rules_table.setHorizontalHeaderLabels([
-            "Name", "Source IP", "Destination IP", "Protocol", 
-            "Ports", "Action", "Enabled"
+            "Name", "Source IP", "Destination IP", "Protocol", "Ports", "Action", "Enabled"
         ])
         
-        # Enhanced table styling
+        # Apply EXACT same table styling as Activity Logs
         self.rules_table.setStyleSheet("""
             QTableWidget {
                 gridline-color: #454545;
@@ -327,24 +353,33 @@ class RulesEditorWidget(QWidget):
             }
         """)
         
-        # Set column stretch
+        # Configure table exactly like Activity Logs
         header = self.rules_table.horizontalHeader()
-        header.setSectionResizeMode(0, QHeaderView.Stretch)  # Name
-        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)  # Source IP
-        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)  # Dest IP
-        header.setSectionResizeMode(3, QHeaderView.ResizeToContents)  # Protocol
-        header.setSectionResizeMode(4, QHeaderView.Stretch)  # Ports
-        header.setSectionResizeMode(5, QHeaderView.ResizeToContents)  # Action
-        header.setSectionResizeMode(6, QHeaderView.ResizeToContents)  # Enabled
+        for i in range(header.count()):
+            header.setSectionResizeMode(i, QHeaderView.Stretch)
         
-        # Enable alternating row colors
+        # Set selection behavior exactly like Activity Logs
+        self.rules_table.setSelectionBehavior(QTableWidget.SelectRows)
+        self.rules_table.setSelectionMode(QTableWidget.SingleSelection)
         self.rules_table.setAlternatingRowColors(True)
+        self.rules_table.setSortingEnabled(False)  # Disable sorting like Activity Logs
         
-        table_layout.addWidget(self.rules_table)
-        layout.addWidget(table_container)
+        # Set font exactly like Activity Logs
+        self.rules_table.setFont(QFont("Segoe UI", 10))
+        
+        # Add table to rules tab layout
+        rules_tab_layout.addWidget(self.rules_table)
+        self.rules_tab.setLayout(rules_tab_layout)
+        
+        # Add the tab to the tab widget
+        self.rules_tab_widget.addTab(self.rules_tab, "🛡️ Firewall Rules")
+        
+        # Add tab widget to main layout
+        layout.addWidget(self.rules_tab_widget)
         
         self.setLayout(layout)
-    
+
+    # ...existing code...    
     def load_rules(self):
         """Load rules from the rule manager"""
         if not self.rule_manager:

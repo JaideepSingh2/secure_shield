@@ -239,7 +239,7 @@ class MainWindow(QMainWindow):
     def _initUI(self):
         """Initialize the user interface with antivirus styling"""
         self.setWindowTitle("SecureShield Firewall Management")
-        self.setGeometry(100, 100, 1200, 800)
+        self.setGeometry(100, 100, 1400, 800)
         self.setMinimumSize(1000, 600)
         
         # Create central widget and layout

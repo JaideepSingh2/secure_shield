@@ -1,5 +1,5 @@
 # Python
-**/__pycache__/
+
 *.py[cod]
 *$py.class
 *.so
@@ -13,7 +13,7 @@
 *~
 
 # Virtual environments
-.env
+**/*.env
 .venv
 env/
 venv/
@@ -48,7 +48,7 @@ antivirus/secureshield.db
 *.log
 
 # Temporary Python files
-tempCodeRunnerFile.py
+
 *tempCodeRunnerFile*
 
 # Temporary files
@@ -68,3 +68,11 @@ git
 **/*.sqlite3
 **/*.json
 **/*.pyc
+**/*.log
+**/*.kate-swp
+**/*.swp
+**/*.swo
+**/__pycache__/
+**/*.enc
+**/tempCodeRunnerFile.py
+**/tempCodeRunnerFile.sh
