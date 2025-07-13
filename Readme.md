@@ -8,4 +8,18 @@ To get started, please refer to the individual README files for each module:
 - [Readme_Password_Manager.md](./Readme_Password_Manager.md) — Password Manager details
 - [Readme_Firewall.md](./Readme_Firewall.md) — Firewall instructions
 
-Each README contains installation steps, requirements, features, and usage instructions specific to
+Each README contains installation steps, requirements, features, and usage instructions specific to its module.
+
+---
+
+## Running SecureShield
+
+To launch the full SecureShield suite (main dashboard), run:
+
+```bash
+python3 main.py
+```
+
+from the project root directory.
+
+From the main dashboard, you can access Antivirus, Password Manager, and Firewall. For detailed instructions and advanced features, refer to each module's README as listed
