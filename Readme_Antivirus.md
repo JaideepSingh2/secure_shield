@@ -26,7 +26,7 @@ This README covers only the **Antivirus** component of SecureShield. Password Ma
 
 ### System Requirements
 
-- **openSUSE Linux** (tested on Tumbleweed and Leap; works on any Linux distribution)
+- **Linux** (tested on Opensuse Tumbleweed and Leap; works on any Linux distribution)
 - **Python 3.8+**
 - **GCC** (for compiling C components)
 - **YARA** (YARA engine and Python bindings)
