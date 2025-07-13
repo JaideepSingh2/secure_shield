@@ -1,0 +1,5 @@
+tkinter
+pyperclip
+bcrypt
+cryptography
+xclip
