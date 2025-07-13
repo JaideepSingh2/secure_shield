@@ -23,7 +23,7 @@
 
 ### System Requirements
 
-- **Linux** (Tested on openSUSE, Ubuntu, Fedora; requires iptables and NFQueue support)
+- **Linux** (Tested on openSUSE, Works on any Linux distribution; requires iptables and NFQueue support)
 - **Python 3.8+**
 - **Root/Admin Privileges** (required for packet interception and iptables manipulation)
 
