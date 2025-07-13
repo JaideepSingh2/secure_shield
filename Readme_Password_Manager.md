@@ -33,7 +33,7 @@ This README covers only the **Password Manager** component of SecureShield.
 
 ### System Requirements
 
-- **Linux** (Tested on openSUSE, Ubuntu, Fedora; works on most modern distributions)
+- **Linux** (Tested on openSUSE, works on all Linux distributions; with few tweaks can also be made to run on windows)
 - **Python 3.8+**
 
 ### Python Dependencies
