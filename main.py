@@ -8,6 +8,7 @@ from datetime import datetime
 from PIL import Image, ImageTk
 import sqlite3
 import csv
+scan_lock = threading.Lock()
 
 # Color scheme
 COLORS = {
@@ -894,89 +895,140 @@ class ScanManager:
             daemon=True
         ).start()
     
+
     def _execute_scan_thread(self, path, scan_window, status_var, progress, scan_results, scan_type, current_file_var=None):
         """Execute scan in a separate thread"""
-        try:
-            print(f"DEBUG: Starting scan of {path}")
-            print(f"DEBUG: Engine path: {self.engine_path}")
-            
+        import time
+
+        engine_path = self.engine_path
+        scan_path = path
+
+        def engine_ready():
             # Check if engine exists and is executable
-            if not os.path.exists(self.engine_path):
-                raise Exception(f"Engine not found at {self.engine_path}")
-            
-            if not os.access(self.engine_path, os.X_OK):
-                raise Exception(f"Engine is not executable: {self.engine_path}")
-            
-            # Execute engine and capture output
-            process = subprocess.Popen(
-                [self.engine_path, path], 
-                stdout=subprocess.PIPE, 
-                stderr=subprocess.PIPE,
-                universal_newlines=True,
-                bufsize=1  # Line buffered for real-time output
-            )
-            
-            print(f"DEBUG: Process started with PID {process.pid}")
-            
-            # Read stderr in a separate thread to avoid blocking
-            stderr_lines = []
-            def read_stderr():
-                for line in process.stderr:
-                    stderr_lines.append(line.strip())
-                    print(f"ENGINE STDERR: {line.strip()}")
-            
-            import threading
-            stderr_thread = threading.Thread(target=read_stderr, daemon=True)
-            stderr_thread.start()
-            
-            # Read and process stdout
-            line_count = 0
-            while True:
-                output_line = process.stdout.readline()
-                if not output_line and process.poll() is not None:
-                    break
-                
-                if output_line:
-                    line_count += 1
-                    output_line = output_line.strip()
-                    print(f"ENGINE STDOUT #{line_count}: {output_line}")
-                    
-                    # Process the output line
-                    self._process_scan_output(output_line, scan_results, scan_type)
-                    
-                    # Update UI for file scanning progress
-                    if current_file_var and output_line.startswith("[R] FILE_SCANNING:"):
-                        file_path = output_line[18:].strip()  # Remove "[R] FILE_SCANNING:" prefix
-                        filename = os.path.basename(file_path)
-                        scan_window.after(0, lambda f=filename: current_file_var.set(f"Scanning: {f}"))
-                        scan_window.after(0, lambda f=filename: status_var.set(f"Scanning: {f}"))
-            
-            # Wait for process to complete
-            return_code = process.wait()
-            print(f"DEBUG: Process completed with return code {return_code}")
-            print(f"DEBUG: Total lines read: {line_count}")
-            print(f"DEBUG: Final scan results: {scan_results}")
-            
-            if stderr_lines:
-                print(f"DEBUG: STDERR output: {stderr_lines}")
-            
-            # Store log for detailed view later
-            scan_results["scan_logs"].append(f"✅ Scan completed on {path}")
-            
-            # Add to scan history
-            threats_count = len(scan_results["file_threats"])
-            self.app.db_manager.add_scan_history(scan_type, path, threats_count)
-            
-            # Update UI when scan is complete
-            scan_window.after(0, lambda: self._show_scan_results(path, scan_window, status_var, progress, scan_results, scan_type))
-            
+            if not os.path.exists(engine_path):
+                return f"Engine not found at {engine_path}"
+            if not os.access(engine_path, os.X_OK):
+                try:
+                    os.chmod(engine_path, 0o755)
+                except Exception as e:
+                    return f"Engine is not executable and chmod failed: {e}"
+            # Check rules directory
+            rules_dir = os.path.join(os.path.dirname(engine_path), "rules")
+            if not os.path.exists(rules_dir) or not os.path.isdir(rules_dir):
+                return f"Rules directory not found at {rules_dir}"
+            return None
+
+        try:
+            with scan_lock:  # Prevent concurrent scans
+                print(f"DEBUG: Starting scan of {scan_path}")
+                print(f"DEBUG: Engine path: {engine_path}")
+                print(f"DEBUG: Engine exists: {os.path.exists(engine_path)}, is executable: {os.access(engine_path, os.X_OK)}")
+                print(f"DEBUG: Working directory: {os.getcwd()}")
+
+                # Retry engine readiness check up to 3 times
+                for attempt in range(3):
+                    error = engine_ready()
+                    if error is None:
+                        break
+                    print(f"DEBUG: Engine not ready (attempt {attempt+1}): {error}")
+                    time.sleep(1)
+                else:
+                    scan_window.after(0, lambda: status_var.set(error))
+                    scan_window.after(0, progress.stop)
+                    scan_window.after(0, lambda: messagebox.showerror(
+                        "Engine Initialization Error", error, parent=scan_window
+                    ))
+                    return
+
+                # Set working directory to where engine is located
+                engine_cwd = os.path.dirname(engine_path)
+                process = subprocess.Popen(
+                    [engine_path, scan_path],
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                    universal_newlines=True,
+                    bufsize=1,
+                    cwd=engine_cwd
+                )
+
+                print(f"DEBUG: Process started with PID {process.pid}")
+
+                # Read stderr in a separate thread to avoid blocking
+                stderr_lines = []
+                def read_stderr():
+                    for line in process.stderr:
+                        stderr_lines.append(line.strip())
+                        print(f"ENGINE STDERR: {line.strip()}")
+
+                stderr_thread = threading.Thread(target=read_stderr, daemon=True)
+                stderr_thread.start()
+
+                # Read and process stdout
+                line_count = 0
+                while True:
+                    output_line = process.stdout.readline()
+                    if not output_line and process.poll() is not None:
+                        break
+
+                    if output_line:
+                        line_count += 1
+                        output_line = output_line.strip()
+                        print(f"ENGINE STDOUT #{line_count}: {output_line}")
+
+                        # Process the output line
+                        self._process_scan_output(output_line, scan_results, scan_type)
+
+                        # Update UI for file scanning progress
+                        if current_file_var and output_line.startswith("[R] FILE_SCANNING:"):
+                            file_path = output_line[18:].strip()
+                            filename = os.path.basename(file_path)
+                            scan_window.after(0, lambda f=filename: current_file_var.set(f"Scanning: {f}"))
+                            scan_window.after(0, lambda f=filename: status_var.set(f"Scanning: {f}"))
+
+                # Wait for process to complete
+                return_code = process.wait()
+                stderr_thread.join(timeout=2)
+                print(f"DEBUG: Process completed with return code {return_code}")
+                print(f"DEBUG: Total lines read: {line_count}")
+                print(f"DEBUG: Final scan results: {scan_results}")
+
+                if stderr_lines:
+                    print(f"DEBUG: STDERR output: {stderr_lines}")
+
+                # If engine failed (non-zero exit code) and no [R] result lines, show error
+                has_result_lines = any(
+                    line.startswith("[R]") for line in scan_results["scan_logs"]
+                )
+                if return_code != 0 and not has_result_lines:
+                    error_message = (
+                        "Antivirus engine failed to scan the file or directory.\n"
+                        "Please check your rules directory and engine configuration.\n"
+                        f"Engine stderr: {'; '.join(stderr_lines)}"
+                    )
+                    scan_window.after(0, lambda: status_var.set(error_message))
+                    scan_window.after(0, progress.stop)
+                    scan_window.after(0, lambda: messagebox.showerror(
+                        "Scan Error", error_message, parent=scan_window
+                    ))
+                    return  # Do not show safe notification
+
+                # Store log for detailed view later
+                scan_results["scan_logs"].append(f"✅ Scan completed on {scan_path}")
+
+                # Add to scan history
+                threats_count = len(scan_results["file_threats"])
+                self.app.db_manager.add_scan_history(scan_type, scan_path, threats_count)
+
+                # Update UI when scan is complete
+                scan_window.after(0, lambda: self._show_scan_results(scan_path, scan_window, status_var, progress, scan_results, scan_type))
+
         except Exception as e:
             print(f"DEBUG: Exception in scan thread: {e}")
             error_message = f"Error: {str(e)}"
             scan_results["scan_logs"].append(error_message)
             scan_window.after(0, lambda: status_var.set(error_message))
             scan_window.after(0, progress.stop)
-    
+
     def _process_scan_output(self, output_line, scan_results, scan_type):
         """Process a line of output from the scanning engine"""
         # Add raw output to logs for detailed view
@@ -1408,7 +1460,8 @@ class RTMManager:
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE, 
                 universal_newlines=True,
-                bufsize=1  # Line buffered
+                bufsize=1,  # Line buffered,
+                cwd=os.path.dirname(self.rtm_path)
             )
             
             # Read output in a separate thread
