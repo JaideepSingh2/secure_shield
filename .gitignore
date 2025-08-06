@@ -76,3 +76,4 @@ git
 **/*.enc
 **/tempCodeRunnerFile.py
 **/tempCodeRunnerFile.sh
+**/antivirus/test
